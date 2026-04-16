@@ -4,8 +4,13 @@
 import os
 import json
 import re
+import urllib3
 import requests
 from pathlib import Path
+
+# Suppress SSL warnings on corporate networks with custom CA certs
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+VERIFY_SSL = False
 
 BASE_URL = os.environ["CONFLUENCE_BASE_URL"].rstrip("/")
 EMAIL = os.environ["CONFLUENCE_USER_EMAIL"]
@@ -24,6 +29,7 @@ def get_page_id(title: str, parent_id: str) -> str | None:
         API,
         auth=AUTH,
         params={"spaceKey": SPACE_KEY, "title": title, "expand": "version,ancestors"},
+        verify=VERIFY_SSL,
     )
     resp.raise_for_status()
     results = resp.json().get("results", [])
@@ -52,7 +58,7 @@ def create_or_update_page(title: str, body_html: str, parent_id: str) -> str:
     }
 
     if existing_id:
-        resp = requests.get(f"{API}/{existing_id}?expand=version", auth=AUTH)
+        resp = requests.get(f"{API}/{existing_id}?expand=version", auth=AUTH, verify=VERIFY_SSL)
         resp.raise_for_status()
         version = resp.json()["version"]["number"] + 1
         payload["version"] = {"number": version}
@@ -61,9 +67,10 @@ def create_or_update_page(title: str, body_html: str, parent_id: str) -> str:
             auth=AUTH,
             headers=HEADERS,
             data=json.dumps(payload),
+            verify=VERIFY_SSL,
         )
     else:
-        resp = requests.post(API, auth=AUTH, headers=HEADERS, data=json.dumps(payload))
+        resp = requests.post(API, auth=AUTH, headers=HEADERS, data=json.dumps(payload), verify=VERIFY_SSL)
 
     resp.raise_for_status()
     page_id = resp.json()["id"]
