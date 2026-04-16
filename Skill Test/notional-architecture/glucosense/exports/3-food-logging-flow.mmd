@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant M as Mobile App
+    participant FL as Smart Food Logger
+    participant FDB as Food and Nutrition DB
+    participant EB as Event Bus
+    participant V as Validation Engine
+    participant PDB as Patient Data Store
+    participant CE as Correlation Engine
+    participant P as Patient Portal
+
+    M->>FL: Log meal (photo / barcode / manual)
+    FL->>FDB: Lookup nutritional data
+    FDB-->>FL: Nutritional profile + glycemic index
+    FL->>EB: FoodLoggedEvent
+    EB->>V: Validate food entry
+    V->>PDB: Store food log
+    V->>EB: FoodEntryValidated
+
+    EB->>CE: Trigger correlation
+    CE->>CE: Match meal to upcoming glucose response
+    CE->>EB: CorrelationComputed
+    EB->>P: Update glucose-food correlation view
+    EB->>M: Push correlation insight

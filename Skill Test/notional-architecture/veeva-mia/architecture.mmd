@@ -1,0 +1,66 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#000050', 'primaryTextColor': '#fff', 'primaryBorderColor': '#000080', 'lineColor': '#3333AA', 'secondaryColor': '#DDDDF8', 'tertiaryColor': '#F0F0FF', 'fontSize': '14px'}}}%%
+graph TD
+    subgraph EXT["fa:fa-cloud EXTERNAL SYSTEMS"]
+        VEEVA["Veeva Vault\n12K AdPromo Docs"]
+        VEEVAPROFILE["Veeva User Profiles\nRegion Assignments"]
+    end
+
+    subgraph EXP["EXPERIENCE LAYER"]
+        CHAT["Mia Chat Interface\n+ Veeva Data Source Selector"]
+        RENDER["Response Renderer\nCitations | Confidence | Disclaimers"]
+    end
+
+    subgraph APP["APPLICATION SERVICES LAYER"]
+        FF["Feature Flag\nKill Switch"]
+        QUERY["Query Processor\nIntent Classification"]
+        ACL["Access Control Gate\nRegion-Based Pre-Retrieval"]
+        RAG["RAG Orchestrator\nRetrieve → Generate → Cite"]
+    end
+
+    subgraph INTEG["INTEGRATION LAYER"]
+        ADAPTER["Veeva API Adapter\nRead-Only | Profile-Aware"]
+    end
+
+    subgraph DATA["DATA LAYER"]
+        INGEST["Ingestion Pipeline\nMetadata-Driven ETL"]
+        VECTOR[("Vector Store\nEmbeddings")]
+        META[("Metadata Store\nDoc Attributes")]
+        AUDITDB[("Audit Store\nQuery Logs")]
+    end
+
+    subgraph SEC["SECURITY & GOVERNANCE  ━━  Cross-Cutting"]
+        SSO["Abbott SSO\nSAML/OIDC"]
+        COMPLY["Compliance Engine\nMLR Enforcement"]
+        SECMON["Security Monitor\nViolation Detection"]
+    end
+
+    %% Primary query flow
+    CHAT -->|"1. query"| QUERY
+    QUERY -->|"2. classify"| ACL
+    ACL -->|"3. authorized"| RAG
+    RAG -->|"4. response"| RENDER
+
+    %% Data access
+    RAG --> VECTOR
+    RAG --> META
+    ACL --> META
+    RAG --> AUDITDB
+
+    %% Integration
+    ACL -->|"profile lookup"| ADAPTER
+    ADAPTER --> VEEVAPROFILE
+    INGEST --> ADAPTER
+    ADAPTER --> VEEVA
+
+    %% Ingestion
+    INGEST --> VECTOR
+    INGEST --> META
+
+    %% Feature flag
+    FF -.->|"enable/disable"| CHAT
+
+    %% Security
+    SSO -.-> CHAT
+    COMPLY -.-> ACL
+    COMPLY -.-> INGEST
+    SECMON -.-> AUDITDB

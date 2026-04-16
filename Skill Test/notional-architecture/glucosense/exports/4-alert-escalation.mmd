@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant AE as Alert Engine
+    participant N as Notification Service
+    participant P as Patient
+    participant CG as Caregiver
+    participant CL as Clinician
+
+    AE->>AE: Threshold breached (glucose > 250 mg/dL)
+    AE->>N: Level 1 - Notify Patient
+    N->>P: Push + In-app alert
+
+    alt Patient acknowledges
+        P->>AE: Acknowledged
+    else No response (15 min)
+        AE->>N: Level 2 - Notify Caregiver
+        N->>CG: Push + SMS alert
+    end
+
+    alt Caregiver acknowledges
+        CG->>AE: Acknowledged
+    else No response (30 min) OR critical threshold
+        AE->>N: Level 3 - Notify Clinician
+        N->>CL: Push + SMS + Email alert
+    end

@@ -1,0 +1,40 @@
+graph TB
+    subgraph US["US Region HIPAA"]
+        US_DATA[(Patient Data<br/>US Residents)]
+        US_APP[App Services]
+        US_TS[(Time-Series Store)]
+    end
+
+    subgraph EU["EU Region GDPR + EU MDR"]
+        EU_DATA[(Patient Data<br/>EU Residents)]
+        EU_APP[App Services]
+        EU_TS[(Time-Series Store)]
+    end
+
+    subgraph APAC["APAC Region PDPA / APPI"]
+        APAC_DATA[(Patient Data<br/>APAC Residents)]
+        APAC_APP[App Services]
+        APAC_TS[(Time-Series Store)]
+    end
+
+    subgraph GLOBAL["Global Services"]
+        CDN[CDN / Edge]
+        FOOD[Food and Nutrition DB<br/>Localized per region]
+        ANALYTICS[Analytics Platform<br/>Anonymized aggregates only]
+        IAMG[IAM Platform<br/>Global identity federation]
+    end
+
+    CDN --> US_APP
+    CDN --> EU_APP
+    CDN --> APAC_APP
+
+    US_APP --> US_DATA
+    US_APP --> US_TS
+    EU_APP --> EU_DATA
+    EU_APP --> EU_TS
+    APAC_APP --> APAC_DATA
+    APAC_APP --> APAC_TS
+
+    US_APP -.->|anonymized| ANALYTICS
+    EU_APP -.->|anonymized| ANALYTICS
+    APAC_APP -.->|anonymized| ANALYTICS

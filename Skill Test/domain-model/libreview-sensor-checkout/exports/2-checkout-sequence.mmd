@@ -1,0 +1,59 @@
+sequenceDiagram
+    participant P as Patient
+    participant LV as LibreView Account
+    participant PP as Patient Profile
+    participant Rx as Prescription
+    participant Ins as Insurance Plan
+    participant Elig as Eligibility Check
+    participant PA as Prior Authorization
+    participant CS as Checkout Session
+    participant Pay as Payment
+    participant Ord as Order
+    participant Ship as Shipment
+
+    P->>LV: Log in
+    LV-->>P: Authenticated
+
+    P->>PP: Verify/update profile
+    PP-->>P: Profile confirmed
+
+    P->>Rx: Select active prescription
+    Rx-->>CS: Rx validated (active, not expired, refills > 0)
+
+    P->>CS: Select sensor product
+    Note over CS: Product must match Rx sensorType
+
+    CS->>Elig: Run eligibility check
+    Elig->>Ins: Verify coverage
+    Ins-->>Elig: Coverage response
+
+    alt Eligibility Approved
+        Elig-->>CS: Approved (copay: $X)
+    else Eligibility Denied
+        Elig-->>P: Denied (reason)
+        Note over P: Checkout blocked
+    end
+
+    alt Prior Auth Required
+        CS->>PA: Check PA status
+        alt PA Approved
+            PA-->>CS: Approved (authNumber)
+        else PA Not Approved
+            PA-->>P: PA required - contact provider
+            Note over P: Checkout blocked
+        end
+    end
+
+    P->>CS: Select shipping address
+    P->>CS: Review and confirm order
+
+    CS->>Pay: Charge patient portion (copay)
+    alt Payment Success
+        Pay-->>CS: Authorized
+        CS->>Ord: Create order
+        Ord->>Rx: Decrement refillsRemaining
+        Ord-->>Ship: Initiate shipment
+        Ship-->>P: Tracking info sent
+    else Payment Failed
+        Pay-->>P: Payment failed - retry or update method
+    end

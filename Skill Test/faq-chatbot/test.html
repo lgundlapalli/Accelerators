@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ Chatbot — Test Checklist</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #222; }
+    h1 { font-size: 22px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    h2 { font-size: 16px; margin: 28px 0 10px; border-bottom: 2px solid #005A9C; padding-bottom: 6px; color: #005A9C; }
+    .test-case { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; padding: 10px 14px; background: #f9f9f9; border-radius: 6px; }
+    .test-case input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+    .test-label { font-size: 14px; line-height: 1.5; }
+    .test-label .step { color: #555; font-size: 12px; display: block; margin-top: 2px; }
+    .pass { background: #f0fdf4; }
+    .fail { background: #fff5f5; }
+    #reset-btn { margin-top: 32px; padding: 8px 18px; background: #e53e3e; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    #reset-btn:hover { background: #c53030; }
+    #progress { font-size: 14px; color: #555; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>FAQ Chatbot — Manual Test Checklist</h1>
+  <p class="subtitle">Open <code>index.html</code> and <code>admin.html</code> in the same browser to run these tests.</p>
+  <p id="progress">0 / 0 passed</p>
+
+  <h2>1. Widget — Initial Load</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Widget renders with blue header and title "FAQ"<span class="step">Open index.html → check header</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Language toggle shows "English" and "日本語" buttons<span class="step">Check top-right of header</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Welcome message is visible below header<span class="step">Check body area</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Two category buttons visible: "Reimbursement" and "Prescription"<span class="step">Check home state</span></div></div>
+
+  <h2>2. Widget — Category & Answer Navigation</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Clicking "Reimbursement" shows 3 FAQ question buttons<span class="step">Click Reimbursement</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Clicking a question shows the answer text<span class="step">Click any question</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Back button from answer returns to category list<span class="step">Click ← Back</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Back button from category returns to home<span class="step">Click ← Back from category</span></div></div>
+
+  <h2>3. Widget — Search</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Searching "reimbursement" returns a relevant answer<span class="step">Type "reimbursement" → click search</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Searching "prescription" returns a relevant answer<span class="step">Type "prescription" → click search</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Searching a nonsense string shows no-results fallback<span class="step">Type "xyzabc123" → click search</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Pressing Enter in search box triggers search<span class="step">Type query → press Enter</span></div></div>
+
+  <h2>4. Widget — Language Toggle</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Clicking 日本語 switches all visible text to Japanese<span class="step">Click 日本語 on home screen</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Category labels switch to Japanese (保険適用, 処方)<span class="step">Check category buttons after switching</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">FAQ questions and answers display in Japanese after toggle<span class="step">Navigate to a question while in 日本語 mode</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Switching back to English restores English text<span class="step">Click English button</span></div></div>
+
+  <h2>5. Widget — Fallback</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Answer state shows phone number and email button (default: both)<span class="step">Click any answer → check bottom section</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Email button opens mailto link<span class="step">Click "Contact via Email"</span></div></div>
+
+  <h2>6. Admin — Content Tab</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Admin panel loads with 2 category cards<span class="step">Open admin.html → Content tab</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">"Changes saved" indicator appears after editing any field<span class="step">Edit a FAQ question field</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Changes to FAQ question in admin appear in widget immediately<span class="step">Edit a question → switch to index.html → navigate to that FAQ</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">+ Add Category creates a new empty card<span class="step">Click + Add Category</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Delete Category removes it from the list<span class="step">Delete the new category</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">+ Add Question adds a new FAQ item inside the category<span class="step">Click + Add Question in any category</span></div></div>
+
+  <h2>7. Admin — Languages Tab</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">English is listed as locked (Source)<span class="step">Check Languages tab</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Adding language code "fr" + "Français" adds it to the list<span class="step">Fill form and click + Add Language</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">New language appears as a tab in FAQ items in Content tab<span class="step">Switch to Content tab after adding fr</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Removing a language removes it from the list and FAQ tabs<span class="step">Remove "fr"</span></div></div>
+
+  <h2>8. Admin — Settings Tab</h2>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Changing theme color updates widget header color on refresh<span class="step">Change color → open index.html</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Setting fallback mode to "phone" fades the email row<span class="step">Select "Phone only" in fallback dropdown</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Phone-only mode shows only phone number in widget answer state<span class="step">Open index.html → check answer fallback section</span></div></div>
+  <div class="test-case"><input type="checkbox" /><div class="test-label">Email-only mode shows only email button in widget<span class="step">Set "Email only" → check widget</span></div></div>
+
+  <button id="reset-btn">Reset All Checkboxes</button>
+
+  <script>
+    const checks = document.querySelectorAll('input[type="checkbox"]');
+    const progress = document.getElementById('progress');
+
+    function updateProgress() {
+      const passed = Array.from(checks).filter(c => c.checked).length;
+      progress.textContent = passed + ' / ' + checks.length + ' passed';
+      checks.forEach(c => {
+        c.closest('.test-case').classList.toggle('pass', c.checked);
+        c.closest('.test-case').classList.toggle('fail', !c.checked);
+      });
+      localStorage.setItem('test_state', JSON.stringify(Array.from(checks).map(c => c.checked)));
+    }
+
+    const saved = JSON.parse(localStorage.getItem('test_state') || '[]');
+    checks.forEach((c, i) => { if (saved[i]) c.checked = true; });
+    checks.forEach(c => c.addEventListener('change', updateProgress));
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      checks.forEach(c => c.checked = false);
+      localStorage.removeItem('test_state');
+      updateProgress();
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> CONFIRMED: Checkout completed
+    CONFIRMED --> PROCESSING: Sent to fulfillment
+    PROCESSING --> SHIPPED: Carrier picked up
+    SHIPPED --> DELIVERED: Delivery confirmed
+    CONFIRMED --> CANCELLED: Patient or system cancels
+    PROCESSING --> CANCELLED: Cancelled before shipment
+    DELIVERED --> [*]
+    CANCELLED --> [*]

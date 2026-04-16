@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant S as CGM Sensor
+    participant M as Mobile App
+    participant BLE as BT Data Gateway
+    participant EB as Event Bus
+    participant V as Validation Engine
+    participant TS as Time-Series Store
+    participant CE as Correlation Engine
+    participant AE as Alert Engine
+    participant N as Notification Service
+    participant P as Patient Portal
+
+    S->>M: BLE glucose reading
+    M->>BLE: Forward reading
+    BLE->>EB: GlucoseReadingReceived
+    EB->>V: Validate reading
+    V->>TS: Store validated reading
+    V->>EB: ReadingValidated
+
+    EB->>AE: Check thresholds
+    alt Threshold breached
+        AE->>N: Trigger alert
+        N->>M: Push notification
+    end
+
+    EB->>CE: Correlate with recent food
+    CE->>TS: Fetch glucose window
+    CE->>CE: Match food events to glucose response
+    CE->>EB: CorrelationComputed
+    EB->>P: Update dashboard

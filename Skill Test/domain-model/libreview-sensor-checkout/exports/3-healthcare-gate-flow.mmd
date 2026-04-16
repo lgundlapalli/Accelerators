@@ -1,0 +1,32 @@
+flowchart TD
+    START([Patient starts checkout]) --> LOGIN[Log in to LibreView]
+    LOGIN --> PROFILE{Profile complete?}
+    PROFILE -->|No| UPDATE_PROFILE[Update profile / address]
+    UPDATE_PROFILE --> PROFILE
+    PROFILE -->|Yes| SELECT_RX[Select prescription]
+
+    SELECT_RX --> RX_VALID{Rx valid?}
+    RX_VALID -->|Expired / No refills| RX_BLOCKED[Contact provider for new Rx]
+    RX_VALID -->|Active + refills remaining| SELECT_PRODUCT[Select sensor product]
+
+    SELECT_PRODUCT --> ELIG[Run eligibility check]
+    ELIG --> ELIG_RESULT{Eligible?}
+    ELIG_RESULT -->|Denied| ELIG_BLOCKED[Coverage denied - show reason]
+    ELIG_RESULT -->|Approved| PA_CHECK{Prior auth required?}
+
+    PA_CHECK -->|No| CHECKOUT[Proceed to checkout]
+    PA_CHECK -->|Yes| PA_STATUS{PA approved?}
+    PA_STATUS -->|No / Pending| PA_BLOCKED[PA required - contact provider]
+    PA_STATUS -->|Yes| CHECKOUT
+
+    CHECKOUT --> SELECT_ADDRESS[Select shipping address]
+    SELECT_ADDRESS --> REVIEW[Review order + copay]
+    REVIEW --> PAYMENT[Submit payment]
+
+    PAYMENT --> PAY_RESULT{Payment success?}
+    PAY_RESULT -->|Failed| PAY_RETRY[Retry or update payment method]
+    PAY_RETRY --> PAYMENT
+    PAY_RESULT -->|Success| ORDER[Order created]
+
+    ORDER --> FULFILL[Shipment initiated]
+    FULFILL --> TRACKING[Tracking info sent to patient]

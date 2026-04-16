@@ -1,0 +1,19 @@
+flowchart TD
+    RAW[Raw Data Captured] --> VALIDATE{Validation Engine}
+
+    VALIDATE -->|Glucose| G_CHECK{Reading valid?}
+    G_CHECK -->|Anomaly / Gap| FLAG[Flag for review]
+    G_CHECK -->|Valid| STORE_G[Store in Time-Series DB]
+
+    VALIDATE -->|Food| F_CHECK{Entry complete?}
+    F_CHECK -->|Missing info| PROMPT[Prompt patient]
+    F_CHECK -->|Complete| STORE_F[Store in Patient DB]
+
+    STORE_G --> CORRELATE[Correlation Engine]
+    STORE_F --> CORRELATE
+
+    CORRELATE --> RESULT[Correlation Result]
+    RESULT --> FEEDBACK{Patient / Clinician confirms?}
+    FEEDBACK -->|Confirmed| LEARN[Improve model]
+    FEEDBACK -->|Rejected| ADJUST[Re-correlate]
+    ADJUST --> CORRELATE

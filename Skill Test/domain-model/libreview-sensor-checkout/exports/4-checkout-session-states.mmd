@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> IN_PROGRESS: Patient starts checkout
+    IN_PROGRESS --> IN_PROGRESS: Updating selections
+    IN_PROGRESS --> BLOCKED: Rx invalid / Eligibility denied / PA missing
+    BLOCKED --> IN_PROGRESS: Issue resolved
+    IN_PROGRESS --> COMPLETED: Payment authorized, Order created
+    IN_PROGRESS --> ABANDONED: Patient leaves / Session timeout
+    COMPLETED --> [*]
+    ABANDONED --> [*]
+    BLOCKED --> ABANDONED: Patient gives up

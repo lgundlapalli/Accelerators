@@ -1,0 +1,20 @@
+{
+  "name": "miro-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Miro board integration",
+  "main": "index.mjs",
+  "type": "module",
+  "bin": {
+    "miro-mcp": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": ["mcp", "miro"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  }
+}

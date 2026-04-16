@@ -1,0 +1,18 @@
+{
+  "effortLevel": "low",
+  "fastMode": true,
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"[Context Manager Active] Apply context-manager skill discipline this session: (1) Lazy loading — only read files when about to act on them. (2) Grep before Read — find exact lines first, then read targeted ranges. (3) Subagent-first for research — delegate any search spanning 3+ files to Explore subagents. (4) Compact output — write to files instead of outputting large content to conversation. (5) Background delegation — run independent work streams in background subagents. (6) Monitor pressure — if conversation gets deep (15+ turns) or many files read (5+), recommend /compact. Say context check for a health diagnostic anytime.\"}}'",
+            "timeout": 5,
+            "statusMessage": "Loading context manager..."
+          }
+        ]
+      }
+    ]
+  }
+}

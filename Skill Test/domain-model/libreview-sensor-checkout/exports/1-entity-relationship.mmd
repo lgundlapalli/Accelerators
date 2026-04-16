@@ -1,0 +1,141 @@
+classDiagram
+    class Patient {
+        +String patientId
+    }
+
+    class LibreViewAccount {
+        +String accountId
+        +String email
+        +String[] linkedDevices
+        +boolean dataSharingConsent
+        +Date createdAt
+    }
+
+    class PatientProfile {
+        +String profileId
+        +String firstName
+        +String lastName
+        +Date dateOfBirth
+        +String phone
+        +Address[] shippingAddresses
+    }
+
+    class Prescription {
+        +String rxId
+        +String sensorType
+        +number quantity
+        +number refillsRemaining
+        +Date issuedDate
+        +Date expiryDate
+        +RxStatus status
+    }
+
+    class HealthcareProvider {
+        +String providerId
+        +String npi
+        +String name
+        +String practice
+        +String phone
+        +String fax
+    }
+
+    class InsurancePlan {
+        +String planId
+        +String payerName
+        +String payerId
+        +String memberId
+        +String groupNumber
+        +CoverageTier coverageTier
+        +Date effectiveDate
+        +Date terminationDate
+        +PlanStatus status
+    }
+
+    class EligibilityCheck {
+        +String checkId
+        +String sensorType
+        +EligibilityResult result
+        +Money copayAmount
+        +number coveragePercentage
+        +String denialReason
+        +Date checkedAt
+        +Date expiresAt
+    }
+
+    class PriorAuthorization {
+        +String authId
+        +PAStatus status
+        +Date requestedAt
+        +Date decidedAt
+        +Date expiryDate
+        +String authorizationNumber
+    }
+
+    class SensorProduct {
+        +String productId
+        +String name
+        +SensorType sensorType
+        +number wearDurationDays
+        +Money price
+        +boolean requiresPrescription
+        +boolean requiresPriorAuth
+    }
+
+    class CheckoutSession {
+        +String sessionId
+        +Address shippingAddress
+        +Money copayAmount
+        +Money totalAmount
+        +CheckoutStatus status
+        +Date startedAt
+    }
+
+    class Order {
+        +String orderId
+        +number quantity
+        +Money totalAmount
+        +Address shippingAddress
+        +OrderStatus status
+        +Date orderedAt
+    }
+
+    class Payment {
+        +String paymentId
+        +PaymentMethod method
+        +Money amount
+        +Money insurancePortion
+        +Money patientPortion
+        +PaymentStatus status
+        +Date processedAt
+    }
+
+    class Shipment {
+        +String shipmentId
+        +String carrier
+        +String trackingNumber
+        +Date shippedAt
+        +Date estimatedDelivery
+        +Date deliveredAt
+        +ShipmentStatus status
+    }
+
+    Patient "1" -- "1" LibreViewAccount : has
+    Patient "1" -- "1" PatientProfile : has
+    Patient "1" -- "N" Prescription : has
+    Patient "1" -- "N" InsurancePlan : has
+    Patient "1" -- "N" Order : places
+
+    Prescription "N" -- "1" HealthcareProvider : prescribed by
+    Prescription "N" -- "1" SensorProduct : authorizes
+
+    InsurancePlan "1" -- "N" EligibilityCheck : verified by
+    EligibilityCheck "1" -- "0..1" PriorAuthorization : may require
+    Prescription "1" -- "0..1" PriorAuthorization : linked to
+
+    CheckoutSession "N" -- "1" Prescription : uses
+    CheckoutSession "1" -- "1" EligibilityCheck : uses
+    CheckoutSession "N" -- "1" SensorProduct : for
+    CheckoutSession "1" -- "1" Order : creates
+
+    Order "1" -- "1" Payment : has
+    Order "1" -- "1" Shipment : has

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ Chatbot</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #chatbot {
+      width: 380px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #chat-header {
+      background: var(--theme, #005A9C);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #chat-header h1 {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    #lang-toggle {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+
+    .lang-btn.active {
+      background: rgba(255,255,255,0.4);
+      font-weight: 700;
+    }
+
+    #chat-body {
+      padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 480px;
+    }
+
+    #welcome-msg {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    #search-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    #search-input {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #search-input:focus { border-color: var(--theme, #005A9C); }
+
+    #search-btn {
+      background: var(--theme, #005A9C);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .category-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #f0f4fa;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #222;
+      transition: background 0.2s;
+    }
+
+    .category-btn:hover { background: #dce8f7; }
+
+    .faq-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 11px 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .faq-btn:hover { background: #f7f9fc; border-color: var(--theme, #005A9C); }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: var(--theme, #005A9C);
+      cursor: pointer;
+      font-size: 13px;
+      margin-bottom: 14px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    #answer-box {
+      background: #f7f9fc;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    #answer-question {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    #fallback-box {
+      border-top: 1px solid #eee;
+      padding-top: 14px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    #fallback-box .fallback-label {
+      margin-bottom: 8px;
+    }
+
+    #fallback-phone {
+      font-weight: 600;
+      color: #222;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    #fallback-email-btn {
+      display: inline-block;
+      background: var(--theme, #005A9C);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<div id="chatbot">
+  <div id="chat-header">
+    <h1 id="header-title">FAQ</h1>
+    <div id="lang-toggle"></div>
+  </div>
+  <div id="chat-body">
+    <!-- Home State -->
+    <div id="state-home">
+      <p id="welcome-msg"></p>
+      <div id="search-bar">
+        <input id="search-input" type="text" placeholder="Search..." />
+        <button id="search-btn">&#128269;</button>
+      </div>
+      <p class="section-label" id="categories-label">Topics</p>
+      <div id="category-list"></div>
+    </div>
+
+    <!-- Category State -->
+    <div id="state-category" class="hidden">
+      <button class="back-btn" id="back-from-category">&#8592; <span id="back-label-cat">Back</span></button>
+      <p class="section-label" id="faq-list-label">Questions</p>
+      <div id="faq-list"></div>
+    </div>
+
+    <!-- Answer State -->
+    <div id="state-answer" class="hidden">
+      <button class="back-btn" id="back-from-answer">&#8592; <span id="back-label-ans">Back</span></button>
+      <div id="answer-box">
+        <p id="answer-question"></p>
+        <p id="answer-text"></p>
+      </div>
+      <div id="fallback-box">
+        <p class="fallback-label" id="fallback-label-text">Need more help?</p>
+        <span id="fallback-phone" class="hidden"></span>
+        <a id="fallback-email-btn" href="#" class="hidden"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="storage.js"></script>
+<script src="widget.js"></script>
+</body>
+</html>
