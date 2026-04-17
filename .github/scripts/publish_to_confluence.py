@@ -179,6 +179,11 @@ def main():
             "path": repo_root / "Skill Test/faq-chatbot/test.html",
             "type": "html",
         },
+        {
+            "title": "How to Publish Documentation from Claude to Confluence",
+            "path": repo_root / "docs/how-to-publish-claude-to-confluence.md",
+            "type": "markdown",
+        },
     ]
 
     print("Publishing documentation pages...")
