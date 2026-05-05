@@ -1,0 +1,43 @@
+graph LR
+    subgraph PLATFORM["SHARED PLATFORM & DATA LAYER"]
+        P1["Salesforce LS Cloud"] & P2["Adobe AEM"] & P3["Salesforce Data Cloud"] & P4["Azure AI Foundry"] & P5["Anthropic Claude"] & P6["MuleSoft / Azure APIM"]
+    end
+
+    subgraph ACCESS["ACCESS — Market Access"]
+        X1["Competitive Intel\nIQVIA Market Edge AI"] & X2["HTA & Dossier\nZS ZAIDYN Access"] & X3["Patient Support\nConnectiveRx AI"] & X4["Regulatory\nRegASK / Veripharm"]
+    end
+
+    subgraph SPARK["SPARK — Customer Engagement"]
+        S1["Next-Best-Action\nAktana / PharmaForceIQ"] & S2["CRM & HCP Journeys\nVeeva Vault CRM AI"] & S3["Patient Engagement\nConversa Health"] & S4["Personalization\nAdobe Sensei"]
+    end
+
+    subgraph CRAFTS["CRAFTS — Content & MLR"]
+        C1["MLR Review\nVeeva PromoMats AI"] & C2["Compliance\nIndegene AI"] & C3["Modular Content\nAdobe AEM + Firefly"] & C4["Content Testing\nOptimizely"]
+    end
+
+    subgraph ALICE["ALICE — Creative Excellence"]
+        A1["Creative Generation\nAdobe Firefly"] & A2["Brief Intelligence\nPersado"] & A3["Copy & Claims\nWriter.com"] & A4["Creative Ops\nAdobe Workfront"]
+    end
+
+    subgraph BRANDS["BRANDS — Brand Strategy"]
+        B1["Market Intelligence\nDeepsights / IQVIA"] & B2["Social Listening\nBrandwatch"] & B3["Strategy Modeling\nZS ZAIDYN"] & B4["Synthetic Research\nDigital Twins"]
+    end
+
+    BRANDS --> ALICE
+    BRANDS --> CRAFTS
+    BRANDS --> SPARK
+    ALICE --> CRAFTS
+    CRAFTS --> SPARK
+    SPARK --> ACCESS
+    ACCESS --> PLATFORM
+    SPARK --> PLATFORM
+    CRAFTS --> PLATFORM
+    ALICE --> PLATFORM
+    BRANDS --> PLATFORM
+
+    style BRANDS fill:#D6E8FF,stroke:#003087,color:#003087
+    style ALICE fill:#FFE8D6,stroke:#C05000,color:#7A3000
+    style CRAFTS fill:#E8F4E8,stroke:#1A7A1A,color:#1A5C1A
+    style SPARK fill:#F3E5F5,stroke:#7B1FA2,color:#5C0E7A
+    style ACCESS fill:#FFF3E0,stroke:#B35A00,color:#7A3E00
+    style PLATFORM fill:#E3F2FD,stroke:#0277BD,color:#01579B

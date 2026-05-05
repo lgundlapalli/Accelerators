@@ -1,0 +1,37 @@
+graph LR
+    subgraph ALICE["ALICE — Creative Excellence"]
+        A1["Adobe Express ✓ POC"] & A2["Dynamic Media ✓ POC"] & A3["Writer AI ◐ EPD"] & A4["Adobe Firefly — Future"] & A5["Persado — Future"]
+    end
+
+    subgraph BRANDS["BRANDS — Brand Strategy"]
+        B1["Neuron AI ◐ POC"] & B2["Sprinklr ⏸ On Hold"] & B3["RightSpend ⏸ On Hold"] & B4["Deepsights — Future"] & B5["Brandwatch — Future"]
+    end
+
+    subgraph CRAFTS["CRAFTS — Content & MLR"]
+        C1["Writer AI ◐ EPD"] & C2["Adobe Express ✓ POC"] & C3["Collate ◐ POC"] & C4["Veeva PromoMats AI — Future"] & C5["Indegene AI — Future"]
+    end
+
+    subgraph SPARK["SPARK — Customer Engagement"]
+        S1["Salesforce Einstein Mktg Cloud"] & S2["Salesforce Data Cloud"] & S3["Five9 ◐ POC To Start"] & S4["Aktana / PharmaForceIQ — Future"] & S5["Conversa Health — Future"]
+    end
+
+    subgraph ACCESS["ACCESS — Market Access"]
+        X1["No current tools"] & X2["IQVIA Market Edge AI — Future"] & X3["ZS ZAIDYN Access — Future"] & X4["ConnectiveRx AI — Future"] & X5["RegASK — Future"]
+    end
+
+    subgraph PLATFORM["ABBOTT GenAI PLATFORM FOUNDATION"]
+        P1["Azure AI Foundry"] & P2["Anthropic Claude Enterprise"] & P3["Salesforce Data Cloud"] & P4["MuleSoft / Azure APIM"] & P5["Abbott IAM / SSO"]
+    end
+
+    BRANDS --> ALICE
+    ALICE --> CRAFTS
+    CRAFTS --> SPARK
+    SPARK --> ACCESS
+    PLATFORM --> ALICE & BRANDS & CRAFTS & SPARK & ACCESS
+
+    style ALICE fill:#FFE8D6,stroke:#C05000,color:#7A3000
+    style BRANDS fill:#D6E8FF,stroke:#003087,color:#003087
+    style CRAFTS fill:#E8F4E8,stroke:#1A7A1A,color:#1A5C1A
+    style SPARK fill:#F3E5F5,stroke:#7B1FA2,color:#5C0E7A
+    style ACCESS fill:#FFF3E0,stroke:#B35A00,color:#7A3E00
+    style PLATFORM fill:#E3F2FD,stroke:#0277BD,color:#01579B

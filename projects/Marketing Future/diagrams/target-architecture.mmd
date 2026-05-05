@@ -1,0 +1,49 @@
+graph TD
+    subgraph BRANDS["02 BRANDS — Brand Strategy"]
+        B1["Deepsights\nMarket Intel"] & B2["Brandwatch\nSocial Listening"] & B3["ZS ZAIDYN\nStrategy Modeling"] & B4["Salesforce Einstein\nSegmentation"]
+    end
+
+    subgraph ROW2[" "]
+        subgraph ALICE["01 ALICE — Creative Excellence"]
+            A1["Adobe Firefly\nCreative Gen"] & A2["Persado\nBriefs"] & A3["Writer.com\nCopy"] & A4["Workfront\nOps"]
+        end
+        subgraph CRAFTS["03 CRAFTS — Content & MLR"]
+            C1["Veeva PromoMats\nMLR ⚠"] & C2["Indegene AI\nCompliance ⚠"] & C3["Adobe AEM\nContent"] & C4["Optimizely\nTesting"]
+        end
+        subgraph SPARK["04 SPARK — Engagement"]
+            S1["Aktana\nNBA"] & S2["Veeva CRM AI\nHCP Journeys"] & S3["Conversa\nPatient"] & S4["Adobe Sensei\nPersonaliz."]
+        end
+    end
+
+    subgraph ACCESS["05 ACCESS — Market Access"]
+        X1["IQVIA Market Edge\nCompetitive Intel"] & X2["ZS ZAIDYN Access\nHTA Dossier"] & X3["ConnectiveRx\nPatient Support"] & X4["RegASK\nRegulatory ⚠"]
+    end
+
+    subgraph PLATFORM["SHARED DATA & PLATFORM LAYER — Abbott GenAI Foundation"]
+        P1["Salesforce LS Cloud\nCRM"] & P2["Adobe AEM\nContent Mgmt"] & P3["Salesforce Data Cloud\nData Unification"] & P4["Azure AI Foundry\nGenAI Platform"] & P5["Anthropic Claude\nEnterprise LLM"] & P6["MuleSoft\nIntegration"] & P7["Abbott IAM\nIdentity"] & P8["Veeva Vault\nCompliance"]
+    end
+
+    subgraph CURRENT["CURRENT STATE — Tools In Evaluation at Abbott"]
+        CS1["Adobe Express ✓\nPOC Proceeding"] & CS2["Writer AI ◐\nEPD POC"] & CS3["Dynamic Media ✓\nPOC Proceeding"] & CS4["Salesforce Einstein ◐\nMarketing Cloud"] & CS5["Neuron AI ◐\nPOC Progress"] & CS6["Five9 ◐\nPOC To Start"] & CS7["Sprinklr ⏸\nOn Hold"] & CS8["Azure AI Foundry\nEnterprise"]
+    end
+
+    BRANDS -->|"Strategy & Brand Voice"| ALICE
+    BRANDS -->|"Brand Guidelines"| CRAFTS
+    BRANDS -->|"Audience Segments"| SPARK
+    ALICE -->|"Creative Assets"| CRAFTS
+    CRAFTS -->|"Approved Content"| SPARK
+    SPARK -->|"Engagement Signals"| ACCESS
+    CRAFTS -->|"Compliance Docs"| ACCESS
+    ALICE & BRANDS & CRAFTS & SPARK & ACCESS --> PLATFORM
+    CURRENT -.->|"Evolves to Future State"| ALICE
+    CURRENT -.->|"Evolves to Future State"| BRANDS
+    CURRENT -.->|"Evolves to Future State"| SPARK
+
+    style BRANDS fill:#D6E8FF,stroke:#003087,color:#003087
+    style ALICE fill:#FFE8D6,stroke:#C05000,color:#7A3000
+    style CRAFTS fill:#E8F4E8,stroke:#1A7A1A,color:#1A5C1A
+    style SPARK fill:#F3E5F5,stroke:#7B1FA2,color:#5C0E7A
+    style ACCESS fill:#FFF3E0,stroke:#B35A00,color:#7A3E00
+    style PLATFORM fill:#E3F2FD,stroke:#0277BD,color:#01579B
+    style CURRENT fill:#F5F5F5,stroke:#888888,color:#333333
+    style ROW2 fill:none,stroke:none

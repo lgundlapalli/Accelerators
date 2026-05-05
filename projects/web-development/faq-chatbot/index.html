@@ -10,21 +10,55 @@
     body {
       font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
       background: #f4f6f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
     }
 
+    /* ── Launcher button ─────────────────────────────────────────── */
+    #chat-launcher {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--theme, #005A9C);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    #chat-launcher:hover { transform: scale(1.08); background: #004880; }
+
+    #chat-launcher svg { width: 26px; height: 26px; }
+
+    /* ── Widget popup ────────────────────────────────────────────── */
     #chatbot {
+      position: fixed;
+      bottom: 96px;
+      right: 28px;
       width: 380px;
-      max-width: 100%;
+      max-width: calc(100vw - 40px);
       border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
       overflow: hidden;
       background: #fff;
       display: flex;
       flex-direction: column;
+      z-index: 999;
+      transform-origin: bottom right;
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), opacity 0.22s;
+    }
+
+    #chatbot.collapsed {
+      transform: scale(0.85);
+      opacity: 0;
+      pointer-events: none;
     }
 
     #chat-header {
@@ -207,7 +241,15 @@
   </style>
 </head>
 <body>
-<div id="chatbot">
+
+<!-- Chat launcher button -->
+<button id="chat-launcher" title="Open FAQ">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<div id="chatbot" class="collapsed">
   <div id="chat-header">
     <h1 id="header-title">FAQ</h1>
     <div id="lang-toggle"></div>

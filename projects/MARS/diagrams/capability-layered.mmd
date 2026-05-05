@@ -1,0 +1,70 @@
+graph TD
+    subgraph EXP["🖥️ EXPERIENCE LAYER"]
+        e1["Product Catalog Browsing"]
+        e2["Shopping Cart Management"]
+        e3["3-Step Checkout Flow"]
+        e4["Account Dashboard"]
+        e5["Mobile Responsive UI"]
+        e6["Subscription Management UI"]
+        e7["Loyalty Balance Display"]
+        e8["Order History UI"]
+        e9["Customer Profile Mgmt"]
+        e10["Product Search & Filtering"]
+    end
+
+    subgraph APP["⚙️ APPLICATION SERVICES LAYER"]
+        a1["Order Management"]
+        a2["Subscription Engine"]
+        a3["Loyalty Engine"]
+        a4["Pricing & Promotion Engine"]
+        a5["Customer Registration"]
+        a6["Recurring Order Scheduler"]
+        a7["Discount Rules Service"]
+        a8["Points Ledger Service"]
+        a9["Pricing Service"]
+    end
+
+    subgraph DAT["🗄️ DATA LAYER"]
+        d1["Customer Profile Store"]
+        d2["Order Store"]
+        d3["Product Catalog DB"]
+        d4["Loyalty Ledger Store"]
+        d5["Subscription Store"]
+        d6["Cart State DB"]
+        d7["Reporting Dashboard"]
+    end
+
+    subgraph INT["🔗 INTEGRATION LAYER"]
+        i1["Payment Gateway"]
+        i2["Fulfillment Connector"]
+        i3["Notification Service"]
+        i4["Analytics Pipeline"]
+        i5["Tax Calculation Adapter"]
+        i6["Shipping Rate Adapter"]
+        i7["Inventory Availability"]
+        i8["Order Status Updater"]
+    end
+
+    subgraph INF["🏗️ INFRASTRUCTURE & SECURITY"]
+        p1["API Gateway - Azure APIM"]
+        p2["CDN - Azure Front Door"]
+        p3["Compute - AKS"]
+        p4["CI/CD - Azure DevOps"]
+        p5["Auth Service - Azure AD B2C"]
+        p6["Key Vault - Secrets"]
+        p7["Azure WAF - Edge Security"]
+        p8["Azure Monitor - Audit Logging"]
+        p9["Encryption Layer - TLS"]
+        p10["SOC2 / PII Controls"]
+    end
+
+    EXP --> APP
+    APP --> DAT
+    APP --> INT
+    INT --> INF
+
+    style EXP fill:#dbe8ff,stroke:#003087,color:#003087
+    style APP fill:#e8f4e8,stroke:#1a7a1a,color:#1a5c1a
+    style DAT fill:#fff3e0,stroke:#b35a00,color:#7a3e00
+    style INT fill:#f3e5f5,stroke:#7b1fa2,color:#5c0e7a
+    style INF fill:#e3f2fd,stroke:#0277bd,color:#01579b

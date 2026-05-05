@@ -3,6 +3,8 @@
 
 *A case for treating culture as infrastructure — not afterthought*
 
+*v1.0*
+
 ---
 
 ## Metadata
@@ -162,7 +164,69 @@ Proprietary and confidential — do not distribute
 
 ---
 
-## Slide 8: Three Actions to Start Paying Down Cultural Debt Today
+<!-- NAVY BACKGROUND -->
+# The Workforce Transformation Imperative
+
+---
+
+## Slide 8: AI Is Reshaping Work — Not Eliminating It — But Reinvention Is Urgent
+
+The AI-driven jobs apocalypse narrative is misplaced. The real risk is failing to reinvent.
+
+| **The Reality** | **The Shift** | **The Risk** |
+|---|---|---|
+| **32M** | **60%** | **30%** |
+| **Jobs requiring refactoring every year through 2031** | **Of digital products architected for AI agents by 2029, with human UX secondary** | **Of employees terminated by AI will be rehired at higher cost by 2029** |
+| AI is not eliminating jobs — it is redesigning them at unprecedented scale | Autonomous agents initiate, negotiate, and complete tasks without human input — requiring a new design paradigm centered on agent experience | Ineffective workforce transition strategies create the very talent shortages they were meant to avoid |
+| **39%** | **2–5 years** | **15%** |
+| **Of workers' core skills expected to change by 2030** *(WEF Future of Jobs 2025)* | **New half-life of technical skills by 2030 — down from 8–12 years** | **Lower employee engagement when AI agents appear in org charts alongside humans** |
+
+*Sources: Gartner (2025); World Economic Forum Future of Jobs Report (2025)*
+
+**Speaker Notes**: Start by saying the obvious out loud: "Everyone is worried AI is going to eliminate jobs. The data says that's not quite right — but what is happening is actually harder to manage." Then walk the numbers left to right. Thirty-two million jobs a year aren't disappearing — they're being redesigned. That means the people doing those jobs need different skills, different tools, and different support. The half-life number is the one to land on: we used to expect a technical skill to stay relevant for 8 to 12 years. Now it's 2 to 5. That means if you hired someone for their Python or data skills in 2023, some of that is already degrading. The 30% rehire stat is the one that surprises people most — organizations cut roles, then realize six months later they needed those people, and end up paying more to bring them back or replace them. The point is: this isn't a story about job loss, it's a story about organizations being unprepared for the speed of change.
+
+Proprietary and confidential — do not distribute
+
+---
+
+## Slide 9: Five Strategic Predictions That Will Redefine the Workforce by 2030
+
+| **By When** | **What Changes** | **Why It Matters** |
+|---|---|---|
+| **2030** | Half-life of technical skills shrinks to 2–5 years (from 8–12) | Adaptability and learning velocity become the primary hiring metric — not credentials |
+| **2029** | 60% of digital products architected primarily for AI agent consumption | Human-facing UX becomes secondary; CIOs must evolve toward agent experience design |
+| **2029** | 30% of employees terminated and replaced by AI will be rehired — often at higher cost | Ineffective workforce transitions create acute skill shortages and drive up acquisition cost |
+| **2028** | At least one large enterprise will claim the right to create AI avatars of all employees | Employment contracts must address digital identity, knowledge replication, and consent |
+| **2028** | Organizations displaying AI agents in team structures will have 15% lower engagement | AI agents belong in governed IAM/HR systems — not in org charts alongside employees |
+
+*Source: Gartner Strategic Planning Assumptions (2025)*
+
+**Speaker Notes**: Walk through each row like a timeline. By 2030, the skills that get people hired today will have a shelf life of 2 to 5 years — so the question you ask in interviews shifts from "what do you know?" to "how fast do you learn?" By 2029, most digital products will be built primarily for AI agents to use, not humans — that's a complete flip from how we design today. The rehire stat comes next: companies that cut people to replace them with AI will spend the next few years hiring them back, often at higher cost, because they didn't plan the transition well. The avatar row is the one that generates the most conversation — some companies already want to create digital replicas of employees using their emails, documents, and decisions. The legal frameworks don't exist yet. And the last one is practical: if you put AI agents in your org chart next to people, employees disengage. Keep AI governance in IT systems, not in reporting structures. For each row, the useful question is: "Are we ready for this, and if not, what would it take?"
+
+Proprietary and confidential — do not distribute
+
+---
+
+## Slide 10: Four Actions to Future-Proof the Workforce
+
+| **Action** | **What It Means** | **Who Leads** |
+|---|---|---|
+| **Invest in adaptive learning systems** | Personalize learning programs, proactively recommend microlearning courses, verify skills in real time — replace annual training with continuous capability development | CHRO + CIO |
+| **Redesign for human-agent collaboration** | Train UX and engineering teams to build workflows where human judgment integrates with AI-driven actions — and that can eventually support machine-to-machine interactions | CTO + UX Leadership |
+| **Architect the talent remix** | Partner with HR to redefine roles, skills, and workforce design to realize AI ambitions — any workforce restructuring decision must flow from this talent strategy, not precede it | CIO + CHRO |
+| **Lead on digital identity governance** | Drive enterprisewide dialogue on responsible use of employee data in AI and digital avatars — stress-test employment contracts now for scenarios where AI replicates human skill | CIO + General Counsel + HR |
+
+**The CIO's mandate**: AI will indelibly alter how work is performed. The organizations that create a symbiotic relationship between humans and machines will outperform those that treat workforce transformation as an HR side project.
+
+*Source: Gartner (2025)*
+
+**Speaker Notes**: There are four things on this slide and none of them are IT problems alone — each one needs IT and HR working together, or IT and Legal. Walk through them in order. First, adaptive learning: the old model was send people to a class once a year. That doesn't work anymore. You need systems that notice when someone's skills are drifting and push them the right content before it becomes a problem. Second, human-agent collaboration design: your UX and engineering teams are building products for how humans and AI work together today — but they also need to think about what happens when the AI is mostly talking to other AI systems. That's a design shift. Third, the talent remix: before you make any workforce restructuring decision, you need a clear picture of what roles you actually need in an AI-first world. Otherwise you cut the wrong people or create gaps you can't fill. Fourth, digital identity governance: if someone in your org is already building an AI model trained on employee data, do your employment contracts cover that? Probably not. Get ahead of it now. The broader point is that the CIO can't wait for HR to lead this — if you do, you'll already be behind by the time the conversation starts.
+
+Proprietary and confidential — do not distribute
+
+---
+
+## Slide 11: Three Actions to Start Paying Down Cultural Debt Today
 
 | **Action** | **Who Owns It** | **First 30 Days** |
 |---|---|---|

@@ -37,6 +37,9 @@ def get_page_id(title: str, parent_id: str) -> str | None:
         ancestors = [a["id"] for a in r.get("ancestors", [])]
         if parent_id in ancestors or r["id"] == parent_id:
             return r["id"]
+    # Fall back to any page with this title in the space (handles moved pages)
+    if results:
+        return results[0]["id"]
     return None
 
 

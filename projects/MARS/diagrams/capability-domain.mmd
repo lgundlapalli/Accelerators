@@ -1,0 +1,78 @@
+graph TD
+    subgraph COM["🛒 COMMERCE"]
+        c1["Product Catalog & Search"]
+        c2["Shopping Cart"]
+        c3["3-Step Checkout"]
+        c4["Payment Processing"]
+        c5["Tax Calculation"]
+        c6["Shipping Estimation"]
+        c7["Pricing & Promotions"]
+        c8["Inventory Check"]
+    end
+
+    subgraph ORD["📦 ORDER & FULFILLMENT"]
+        o1["Order Creation & Confirmation"]
+        o2["Order Routing to Fulfillment"]
+        o3["Fulfillment Status Sync"]
+        o4["Recurring Order Scheduling"]
+        o5["Transactional Notifications"]
+        o6["Order History UI"]
+    end
+
+    subgraph SUB["🔄 SUBSCRIPTIONS & LOYALTY"]
+        s1["Subscribe & Save Enrollment"]
+        s2["Subscription Management"]
+        s3["Discount Application - 25%"]
+        s4["Loyalty Points Accrual"]
+        s5["Loyalty Points Redemption"]
+        s6["Loyalty Balance Display"]
+    end
+
+    subgraph IDN["👤 IDENTITY & ACCOUNT"]
+        id1["Customer Registration"]
+        id2["Authentication - OAuth2/OIDC"]
+        id3["Session Management"]
+        id4["Password Reset & MFA"]
+        id5["Customer Profile Mgmt"]
+        id6["Account Dashboard"]
+    end
+
+    subgraph DTA["🗄️ DATA & ANALYTICS"]
+        da1["Customer PII Store"]
+        da2["Order Data Store"]
+        da3["Product Catalog DB"]
+        da4["Loyalty Ledger Store"]
+        da5["Subscription Store"]
+        da6["Revenue & KPI Reporting"]
+        da7["Analytics Event Pipeline"]
+    end
+
+    subgraph PLT["🏗️ PLATFORM & SECURITY"]
+        pl1["API Gateway - Azure APIM"]
+        pl2["CDN - Azure Front Door"]
+        pl3["Compute - AKS"]
+        pl4["CI/CD - Azure DevOps"]
+        pl5["Azure WAF & Rate Limiting"]
+        pl6["Encryption - TLS + DB"]
+        pl7["SOC2 / PII Compliance"]
+        pl8["Audit Logging - Azure Monitor"]
+        pl9["Key Vault - Secrets"]
+    end
+
+    COM --> ORD
+    COM --> SUB
+    IDN --> COM
+    ORD --> DTA
+    SUB --> DTA
+    IDN --> DTA
+    PLT --> COM
+    PLT --> ORD
+    PLT --> SUB
+    PLT --> IDN
+
+    style COM fill:#dbe8ff,stroke:#003087,color:#003087
+    style ORD fill:#e8f4e8,stroke:#1a7a1a,color:#1a5c1a
+    style SUB fill:#fff3e0,stroke:#b35a00,color:#7a3e00
+    style IDN fill:#f3e5f5,stroke:#7b1fa2,color:#5c0e7a
+    style DTA fill:#fce4ec,stroke:#c62828,color:#8e0000
+    style PLT fill:#e3f2fd,stroke:#0277bd,color:#01579b
