@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Capability Model">
+    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="10" value="Abbott GenAI Capability Model — Enterprise Blueprint" style="text;html=1;strokeColor=none;fillColor=#000050;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="1500" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4472C433;strokeColor=#4472C4;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="70" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Content &amp;amp; Creative Studio" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="11">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Creative Content Draft" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;strokeWidth=1;fontSize=10;" vertex="1" parent="11">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Writing Drafts &amp;amp; Data Entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;strokeWidth=1;fontSize=10;" vertex="1" parent="11">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Personalize Content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;strokeWidth=1;fontSize=10;" vertex="1" parent="11">
+          <mxGeometry x="720" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Translation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;strokeWidth=1;fontSize=10;" vertex="1" parent="11">
+          <mxGeometry x="985" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7D3133;strokeColor=#ED7D31;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="198" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Insights &amp;amp; Analytics Acceleration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="17">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Search, Screen &amp;amp; Insights" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#ED7D31;strokeWidth=1;fontSize=10;" vertex="1" parent="17">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Reporting &amp;amp; Observability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#ED7D31;strokeWidth=1;fontSize=10;" vertex="1" parent="17">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Forecast" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#ED7D31;strokeWidth=1;fontSize=10;" vertex="1" parent="17">
+          <mxGeometry x="720" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A9D18E33;strokeColor=#A9D18E;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="326" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="Productivity &amp;amp; Automation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="22">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Enterprise Productivity Tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9D18E;strokeWidth=1;fontSize=10;" vertex="1" parent="22">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="Writing Drafts &amp;amp; Data Entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9D18E;strokeWidth=1;fontSize=10;" vertex="1" parent="22">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF99CC33;strokeColor=#FF99CC;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="454" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="Customer &amp;amp; Field Engagement" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="26">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="Assistants" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF99CC;strokeWidth=1;fontSize=10;" vertex="1" parent="26">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="Personalize Content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF99CC;strokeWidth=1;fontSize=10;" vertex="1" parent="26">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Search &amp;amp; CRM Insights" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF99CC;strokeWidth=1;fontSize=10;" vertex="1" parent="26">
+          <mxGeometry x="720" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD96633;strokeColor=#FFD966;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="582" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Engineering &amp;amp; Development" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="31">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="Code Creation with Platform" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFD966;strokeWidth=1;fontSize=10;" vertex="1" parent="31">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="Code Creation IDE &amp;amp; Test Authoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFD966;strokeWidth=1;fontSize=10;" vertex="1" parent="31">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9DC3E633;strokeColor=#9DC3E6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="710" width="1500" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="Learning, Compliance &amp;amp; Governance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#000050;fontSize=13;fontStyle=1;" vertex="1" parent="35">
+          <mxGeometry x="10" y="10" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="Learning, Training &amp;amp; Coaching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9DC3E6;strokeWidth=1;fontSize=10;" vertex="1" parent="35">
+          <mxGeometry x="190" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="Image Identification / Analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9DC3E6;strokeWidth=1;fontSize=10;" vertex="1" parent="35">
+          <mxGeometry x="455" y="15" width="250" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
