@@ -1,0 +1,544 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Build Reference Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="10" value="Abbott GenAI — Platform &amp;amp; Tools Reference Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#000050;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="1720" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="8-Layer Architecture  |  UX on top · Cloud Infrastructure at base  |  Azure Primary · AWS Secondary · GCP  |  Separate AI Model Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#555555;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="56" width="1720" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#AD1457;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="90" width="1520" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="&lt;b&gt;LAYER 8 — USER EXPERIENCE &amp; TOUCHPOINTS&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Enterprise touchpoints + custom UI build technologies — employees, field reps, customers, developers&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#880E4F;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="98" width="210" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="&lt;b&gt;ENTERPRISE TOUCHPOINTS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AD1457;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="98" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="&lt;b&gt;M365 Copilot&#10;/ Teams&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Enterprise AI&#10;Productivity&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248" y="132" width="77" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="&lt;b&gt;Veeva CRM&#10;/ Salesforce&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Field &amp;&#10;Sales Tools&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="333" y="132" width="77" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="&lt;b&gt;Five9 /&#10;Zendesk AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Customer Service&#10;&amp; IVR&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="418" y="132" width="77" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="&lt;b&gt;Adobe&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Creative &amp;&#10;Content Workflows&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="503" y="132" width="77" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="&lt;b&gt;MIA&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Enterprise AI&#10;Assistant (Abbott)&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="588" y="132" width="77" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="&lt;b&gt;CUSTOM UI — WEB &amp; MOBILE&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6A1B9A;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="678" y="98" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="&lt;b&gt;React.js /&#10;Next.js&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Web SPA &amp;&#10;Full-stack&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="678" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="&lt;b&gt;Spring Boot&#10;/ Node.js&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Backend API&#10;&amp; Microservices&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="785" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="&lt;b&gt;React Native&#10;/ Flutter&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Cross-platform&#10;Mobile Apps&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="892" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="&lt;b&gt;MS Teams&#10;App SDK&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Embedded Teams&#10;Tab / Bot&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="999" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="&lt;b&gt;DIVISIONAL FUNCTIONAL APPS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="98" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="&lt;b&gt;SmartRep&#10;Call Planning&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Field Sales AI&#10;EPD Production&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="&lt;b&gt;Synthesia&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;AI Video &amp;&#10;Avatar Generation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="&lt;b&gt;Pharmacovigilance&#10;/ Safety&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Adverse Event&#10;&amp; Regulatory AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1322" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="&lt;b&gt;Custom Division&#10;Apps&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;220+ Abbott-built&#10;GenAI Solutions&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1429" y="132" width="99" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6E8FF;strokeColor=#003087;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="332" width="1520" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="&lt;b&gt;LAYER 7 — AI APPLICATIONS&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Division solutions, GenAI apps, productivity tools, custom builds&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#003087;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="340" width="210" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="&lt;b&gt;Microsoft M365&#10;Copilot&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Enterprise&#10;Productivity&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248.0" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="&lt;b&gt;Adobe&#10;GenStudio&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Creative &amp;&#10;Content Workflows&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="409.25" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="&lt;b&gt;SmartRep&#10;Call Planning&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Field Sales&#10;AI (EPD)&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="570.5" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="&lt;b&gt;Veeva CRM&#10;AI Agents&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;HCP Engagement&#10;&amp; Sales&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="731.75" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="&lt;b&gt;Custom Web&#10;&amp; Mobile Apps&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Division-built&#10;Experiences&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="893.0" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="&lt;b&gt;GenAI CoE&#10;Prompt Library&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Abbott-approved&#10;Templates&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1054.25" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="&lt;b&gt;Five9 /&#10;Zendesk AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Customer Service&#10;Assistants&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1215.5" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="&lt;b&gt;Databricks&#10;Insights Apps&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Analytics &amp;&#10;Reporting AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#003087;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1376.75" y="342" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="492" width="1520" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="&lt;b&gt;LAYER 6 — INTEGRATION &amp; ORCHESTRATION&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;API management, agent frameworks, RAG pipelines, event streaming, middleware&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#5C0E7A;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="500" width="210" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="&lt;b&gt;Azure API&#10;Management&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;API Gateway&#10;&amp; Rate Limiting&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248.0" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="&lt;b&gt;Azure AI Foundry&#10;Agents SDK&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Agent Platform&#10;&amp; Orchestration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="432.2857142857143" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="&lt;b&gt;LangChain /&#10;LangGraph&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;LLM Chaining&#10;&amp; Workflow&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="616.5714285714286" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="&lt;b&gt;AutoGen /&#10;Semantic Kernel&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Multi-Agent&#10;Frameworks&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="800.8571428571429" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="&lt;b&gt;RAG&#10;Pipelines&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Retrieval-Augmented&#10;Generation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="985.1428571428571" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="49" value="&lt;b&gt;Azure Service&#10;Bus / Kafka&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Event&#10;Streaming&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1169.4285714285713" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="&lt;b&gt;REST / GraphQL&#10;/ Webhooks&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Service&#10;Contracts&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1353.7142857142858" y="502" width="176.28571428571428" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="652" width="1520" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="&lt;b&gt;LAYER 5 — DEVELOPER EXPERIENCE&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Enterprise-approved toolchain  |  Green border = Approved  ·  Amber = In Evaluation  ·  Gray = Archived&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="660" width="210" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="&lt;b&gt;CODE &amp; BUILD&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="&lt;b&gt;GitHub&#10;SCM&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Source Control&#10;&amp; Collaboration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="56" value="&lt;b&gt;GitHub&#10;Actions&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;CI/CD Automation&#10;&amp; Pipelines&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="269" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="57" value="&lt;b&gt;GitHub&#10;Copilot&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;AI Pair Programmer&#10;1,275 seats&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="290" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="58" value="&lt;b&gt;jFrog&#10;Artifactory&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Package &amp;&#10;Artifact Registry&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="311" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="59" value="&lt;b&gt;Claude&#10;Code [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;Agentic AI&#10;Coding Assistant&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="332" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="&lt;b&gt;ChatGPT&#10;Enterprise [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;AI Coding &amp;&#10;Documentation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="353" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="&lt;b&gt;CodeRabbit [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Code&#10;Review&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="374" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="&lt;b&gt;Rematiq [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Workflow&#10;Automation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="395" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="&lt;b&gt;Jenkins [x]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#9E9E9E;'&gt;&lt;i&gt;Legacy CI/CD&#10;(deprecated)&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=1;fontColor=#9E9E9E;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="416" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="&lt;b&gt;Bitbucket [x]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#9E9E9E;'&gt;&lt;i&gt;Legacy Source&#10;Control&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=1;fontColor=#9E9E9E;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="437" y="694" width="13" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="&lt;b&gt;PLANNING &amp; COLLABORATION&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="463" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="&lt;b&gt;Jira&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Work Tracking&#10;&amp; Planning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="463" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="&lt;b&gt;Confluence&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Docs &amp; Knowledge&#10;Mgmt&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="489" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="68" value="&lt;b&gt;ALM&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Lifecycle &amp;&#10;Regulated Delivery&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="515" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="69" value="&lt;b&gt;MS Teams&#10;/ Slack&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Collaboration&#10;&amp; Communication&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="541" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="70" value="&lt;b&gt;Atlassian&#10;Rovo [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;AI-native&#10;Project Assistant&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="567" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="&lt;b&gt;ChatGPT&#10;Enterprise [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;Requirements &amp;&#10;Documentation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="593" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="&lt;b&gt;Claude&#10;Enterprise [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Analysis &amp;&#10;Requirements AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="619" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="73" value="&lt;b&gt;Notion AI [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Knowledge&#10;Management&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="645" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="&lt;b&gt;TEST &amp; QUALITY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="678" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="75" value="&lt;b&gt;BrowserStack&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Cross-browser &amp;&#10;Device Testing&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="678" y="694" width="63" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="76" value="&lt;b&gt;Tosca&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Functional &amp;&#10;Regression Testing&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="749" y="694" width="63" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="77" value="&lt;b&gt;Selenium&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Test Automation&#10;Framework&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="820" y="694" width="63" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="78" value="&lt;b&gt;SECURITY &amp; COMPLIANCE&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="893" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="79" value="&lt;b&gt;GitHub Adv.&#10;Security&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Code Scanning&#10;&amp; Secret Detection&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="893" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="80" value="&lt;b&gt;ALM&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Traceability &amp;&#10;Audit Governance&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="919" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="81" value="&lt;b&gt;Ketryx [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Regulated SW&#10;Compliance AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="945" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="82" value="&lt;b&gt;Collate [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Compliance&#10;&amp; Lifecycle&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="971" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="83" value="&lt;b&gt;Aikido [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Security&#10;Scanning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="997" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="84" value="&lt;b&gt;Regology [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Regulatory&#10;Intelligence AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1023" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="&lt;b&gt;Veracode [x]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#9E9E9E;'&gt;&lt;i&gt;SAST/DAST&#10;Scanning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=1;fontColor=#9E9E9E;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1049" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="86" value="&lt;b&gt;SonarQube [x]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#9E9E9E;'&gt;&lt;i&gt;Code Quality&#10;Analysis&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=1;fontColor=#9E9E9E;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="87" value="&lt;b&gt;OBSERVABILITY &amp; MONITORING&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="88" value="&lt;b&gt;New Relic&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Platform&#10;Observability&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="89" value="&lt;b&gt;Sentry&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Error Tracking&#10;&amp; Alerting&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="90" value="&lt;b&gt;OpenTelemetry&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Distributed&#10;Tracing&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="91" value="&lt;b&gt;LangSmith /&#10;LangFuse [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;LLM Prompt &amp;&#10;Trace Mgmt&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1186" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="92" value="&lt;b&gt;Azure AI Foundry&#10;Trace [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;LLM Eval &amp;&#10;Observability&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1212" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="93" value="&lt;b&gt;Arize Phoenix [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Model&#10;Monitoring&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="94" value="&lt;b&gt;Ragas [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;RAG Evaluation&#10;Framework&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1264" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="95" value="&lt;b&gt;Whylabs [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Data &amp; Model&#10;Quality Monitor&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="694" width="18" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="96" value="&lt;b&gt;DESIGN &amp; UX&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1323" y="660" width="205" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="97" value="&lt;b&gt;Figma&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;UI/UX Design&#10;&amp; Prototyping&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1323" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="98" value="&lt;b&gt;Miro&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Ideation &amp;&#10;Collaboration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1358" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="99" value="&lt;b&gt;Adobe Express&#10;/ Firefly&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Creative &amp;&#10;Marketing Assets&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1393" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="100" value="&lt;b&gt;Miro AI [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;AI Diagrams&#10;&amp; Design&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1428" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="101" value="&lt;b&gt;Figma AI [T]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#0D47A1;'&gt;&lt;i&gt;AI UX&#10;Assistant&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;fontColor=#0D47A1;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1463" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="102" value="&lt;b&gt;Adobe Foundry [~]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;AI Creative&#10;Platform&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1498" y="694" width="27" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="103" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#5E35B1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="894" width="1520" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="105" value="&lt;b&gt;LAYER 4 — AI MODEL LAYER&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Foundation models · fine-tuned models · specialist domain models · model routing&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#311B92;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="902" width="210" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="106" value="&lt;b&gt;FRONTIER / FOUNDATION LLMs&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5E35B1;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="902" width="313" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="107" value="&lt;b&gt;Anthropic&#10;Claude 3.5 / 4&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Sonnet · Opus&#10;Enterprise Reasoning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="108" value="&lt;b&gt;OpenAI&#10;GPT-4o / o1&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Azure-hosted&#10;Coding &amp; Analysis&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="312" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="109" value="&lt;b&gt;Google&#10;Gemini 1.5 Pro&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Vertex AI&#10;Long-context · Multi-modal&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="376" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="110" value="&lt;b&gt;Meta&#10;Llama 3.1 / 3.2&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;AWS Bedrock&#10;Open-weight Fine-tune&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="440" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="111" value="&lt;b&gt;Mistral&#10;Large / Mixtral&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Bedrock · Azure&#10;Efficiency Models&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5E35B1;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="504" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="112" value="&lt;b&gt;SPECIALIST &amp; DOMAIN MODELS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#AD1457;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="571" y="902" width="313" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="113" value="&lt;b&gt;Adobe&#10;Firefly&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Creative &amp;&#10;Image Generation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="571" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="114" value="&lt;b&gt;Salesforce&#10;Einstein AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;CRM-native&#10;Predictive AI&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="635" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="115" value="&lt;b&gt;Databricks&#10;MLflow Models&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Custom ML &amp;&#10;Abbott Fine-tunes&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="699" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="116" value="&lt;b&gt;Neuron7&#10;Field AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Field Service&#10;Domain Model&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AD1457;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="763" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="117" value="&lt;b&gt;IQVIA&#10;AI Models [!]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Pharma &amp;&#10;Market Intelligence&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="827" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="118" value="&lt;b&gt;CONTENT &amp; LANGUAGE MODELS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00695C;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="894" y="902" width="313" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="119" value="&lt;b&gt;Writer /&#10;Writer.com&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Enterprise&#10;Content Gen&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00695C;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="894" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="120" value="&lt;b&gt;Persado&#10;AI [!]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Marketing&#10;Language Optimization&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="958" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="121" value="&lt;b&gt;OpenAI&#10;DALL-E 3&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Image&#10;Generation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00695C;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1022" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="122" value="&lt;b&gt;ElevenLabs&#10;/ Azure TTS&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Voice &amp;&#10;Audio Generation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00695C;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1086" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="123" value="&lt;b&gt;Cohere&#10;Embed / Rerank [!]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Embeddings &amp;&#10;Semantic Search&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="124" value="&lt;b&gt;TRANSLATION MODELS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00838F;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1217" y="902" width="313" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="125" value="&lt;b&gt;Collate&#10;AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Content Synthesis&#10;&amp; Translation&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00838F;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1217" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="126" value="&lt;b&gt;Accolad&#10;Translation&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Human-AI Hybrid&#10;Localization&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00838F;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1281" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="127" value="&lt;b&gt;SmartCat&#10;Platform&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;AI-powered&#10;Translation TMS&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00838F;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1345" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="128" value="&lt;b&gt;Azure&#10;Translator&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Neural Machine&#10;Translation (Azure)&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00838F;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1409" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="129" value="&lt;b&gt;Google Cloud&#10;Translation [!]&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#E65100;'&gt;&lt;i&gt;Neural Machine&#10;Translation (GCP)&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;strokeWidth=1;fontColor=#E65100;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1473" y="936" width="56" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="130" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="131" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1136" width="1520" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="132" value="&lt;b&gt;LAYER 3 — DATA &amp; KNOWLEDGE&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Enterprise data, vector stores, embeddings, RAG sources&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#BF360C;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="1144" width="210" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="133" value="&lt;b&gt;Salesforce&#10;Data Cloud&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Unified Customer&#10;&amp; HCP Data&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248.0" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="134" value="&lt;b&gt;Databricks&#10;Lakehouse&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Enterprise&#10;Data Platform&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="409.25" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="135" value="&lt;b&gt;SharePoint /&#10;OneDrive&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Document &amp;&#10;Content Store&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="570.5" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="136" value="&lt;b&gt;Veeva Vault&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Regulatory &amp;&#10;Clinical Content&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="731.75" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="137" value="&lt;b&gt;Azure AI Search&#10;/ Pinecone&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Vector DB &amp;&#10;Semantic Search&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="893.0" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="138" value="&lt;b&gt;SAP / ERP&#10;Data&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Manufacturing&#10;&amp; Finance Data&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1054.25" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="139" value="&lt;b&gt;Azure Data&#10;Factory&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;ETL &amp; Data&#10;Ingestion&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1215.5" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="140" value="&lt;b&gt;Apache Kafka&#10;/ Service Bus&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Real-time&#10;Data Streaming&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1376.75" y="1146" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="141" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="142" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1296" width="1520" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="143" value="&lt;b&gt;LAYER 2 — SECURITY &amp; GOVERNANCE&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Identity, access, compliance, responsible AI, CoE oversight&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#8E0000;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="1304" width="210" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="144" value="&lt;b&gt;Abbott IAM&#10;&amp; SSO&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Identity &amp;&#10;Access Control&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248.0" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="145" value="&lt;b&gt;GenAI CoE&#10;Governance&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;ESC Approval&#10;&amp; Policy&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="409.25" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="146" value="&lt;b&gt;Prompt Firewall&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Input / Output&#10;Filtering&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="570.5" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="147" value="&lt;b&gt;DLP &amp; PII&#10;Masking&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Data Privacy&#10;&amp; Classification&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="731.75" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="148" value="&lt;b&gt;Audit &amp;&#10;Logging&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Azure Monitor&#10;&amp; SIEM&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="893.0" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="149" value="&lt;b&gt;Responsible AI&#10;Framework&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Bias, Safety&#10;&amp; Compliance&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1054.25" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="150" value="&lt;b&gt;Snyk / Checkov&#10;/ SonarQube&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;DevSecOps&#10;Code Scanning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1215.5" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="151" value="&lt;b&gt;Veeva Vault&#10;Compliance&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#555555;'&gt;&lt;i&gt;Regulated&#10;Content Control&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1376.75" y="1306" width="153.25" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="152" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="153" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#0277BD;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1456" width="1520" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="154" value="&lt;b&gt;LAYER 1 — CLOUD INFRASTRUCTURE &amp; PLATFORM SERVICES&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:9px;'&gt;Azure primary · AWS secondary · GCP · compute, networking, containers, DevOps, observability&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#01579B;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="26" y="1464" width="210" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="155" value="&lt;b&gt;MICROSOFT AZURE — AI Services &amp; Infrastructure&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0277BD;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1464" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="156" value="&lt;b&gt;Azure AI&#10;Foundry&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Agent &amp; Model&#10;Orchestration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="248" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="157" value="&lt;b&gt;Azure OpenAI&#10;Service&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;GPT-4o · o1&#10;DALL-E · Whisper&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="290" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="158" value="&lt;b&gt;Azure Machine&#10;Learning&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;MLOps &amp;&#10;Model Registry&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="332" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="159" value="&lt;b&gt;Azure AI&#10;Search&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Vector Store&#10;&amp; RAG Index&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="374" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="160" value="&lt;b&gt;Azure Cognitive&#10;Services&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Vision · Speech&#10;Language · Form&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="416" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="161" value="&lt;b&gt;AKS /&#10;Kubernetes&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Container&#10;Orchestration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="458" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="162" value="&lt;b&gt;Azure DevOps&#10;/ GitHub Actions&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;CI/CD&#10;Pipelines&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="163" value="&lt;b&gt;Azure Key Vault&#10;/ App Config&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Secrets &amp;&#10;Config Mgmt&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="542" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="164" value="&lt;b&gt;Azure Front Door&#10;/ WAF / CDN&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Networking &amp;&#10;Edge Security&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="584" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="165" value="&lt;b&gt;Azure Monitor&#10;/ Log Analytics&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Platform&#10;Observability&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0277BD;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="626" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="166" value="&lt;b&gt;AWS — AI Services &amp; Infrastructure&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9900;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="678" y="1464" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="167" value="&lt;b&gt;AWS&#10;Bedrock&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Multi-model&#10;Gateway&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="678" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="168" value="&lt;b&gt;AWS&#10;SageMaker&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Model Training&#10;&amp; Fine-tuning&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="169" value="&lt;b&gt;AWS&#10;Comprehend&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;NLP &amp;&#10;Entity Extraction&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="762" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="170" value="&lt;b&gt;Amazon&#10;Rekognition&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Image &amp; Video&#10;AI Analysis&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="804" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="171" value="&lt;b&gt;Amazon&#10;Lex / Polly&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Conversational&#10;AI &amp; TTS&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="846" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="172" value="&lt;b&gt;Amazon EKS /&#10;Fargate&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Container&#10;Orchestration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="888" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="173" value="&lt;b&gt;AWS CodePipeline&#10;/ CodeBuild&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;CI/CD&#10;Pipelines&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="174" value="&lt;b&gt;AWS Secrets&#10;Manager / KMS&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Secrets &amp;&#10;Key Mgmt&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="972" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="175" value="&lt;b&gt;AWS CloudFront&#10;/ WAF / Shield&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Networking &amp;&#10;Edge Security&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1014" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="176" value="&lt;b&gt;Amazon CloudWatch&#10;/ X-Ray&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Platform&#10;Observability&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF9900;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1056" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="177" value="&lt;b&gt;GOOGLE CLOUD — AI Services &amp; Infrastructure&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#34A853;strokeColor=none;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="1464" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="178" value="&lt;b&gt;Google Vertex&#10;AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Gemini · PaLM&#10;Model Garden&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="179" value="&lt;b&gt;Google Cloud&#10;Natural Language&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;NLP · Sentiment&#10;Entity Analysis&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="180" value="&lt;b&gt;Google Cloud&#10;Vision / Video AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Image &amp; Video&#10;AI Analysis&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1192" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="181" value="&lt;b&gt;Google Cloud&#10;Speech &amp; TTS&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Speech-to-Text&#10;Text-to-Speech&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1234" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="182" value="&lt;b&gt;Google&#10;Duet AI&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Workspace AI&#10;&amp; Code Assist&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1276" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="183" value="&lt;b&gt;Google&#10;Kubernetes Engine&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Container&#10;Orchestration&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1318" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="184" value="&lt;b&gt;Cloud Build&#10;/ Cloud Deploy&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;CI/CD&#10;Pipelines&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="185" value="&lt;b&gt;Secret Manager&#10;/ Cloud KMS&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Secrets &amp;&#10;Key Mgmt&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1402" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="186" value="&lt;b&gt;Cloud CDN&#10;/ Cloud Armor&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Networking &amp;&#10;Edge Security&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1444" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="187" value="&lt;b&gt;Cloud Monitoring&#10;/ Cloud Trace&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px;color:#1A1A1A;'&gt;&lt;i&gt;Platform&#10;Observability&lt;/i&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;fontColor=#1A1A1A;fontSize=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1486" y="1498" width="34" height="192" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
