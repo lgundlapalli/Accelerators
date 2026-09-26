@@ -1,5 +1,4 @@
 import os
-import math
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 
@@ -148,7 +147,6 @@ def draw_diagram():
                 color=WHITE, multialignment="center", linespacing=1.3)
 
     # ── Persona swimlanes ───────────────────────────────────────
-    ROW_KEYS = ["insights", "aiml", "analytics"]
     for pi, persona in enumerate(PERSONAS):
         sx = content_x + pi * (sw_w + SWIMLANE_GAP)
         col = persona["color"]
@@ -161,7 +159,7 @@ def draw_diagram():
                 ha="center", va="center", fontsize=9.0, fontweight="bold",
                 color=WHITE, multialignment="center", linespacing=1.2)
 
-        for ri, key in enumerate(ROW_KEYS):
+        for ri, key in enumerate(["insights", "aiml", "analytics"]):
             ry = y_row[ri]
             cell = FancyBboxPatch((sx + 0.04, ry + 0.04), sw_w - 0.08, ROW_H - 0.08,
                                   boxstyle="round,pad=0.04",
@@ -171,17 +169,11 @@ def draw_diagram():
                     ha="center", va="center", fontsize=6.8, color=NEAR_BLACK,
                     multialignment="center", linespacing=1.3)
 
-    return fig, ax, content_x, content_w, y_footer_bot
-
-
-if __name__ == "__main__":
-    fig, ax, content_x, content_w, y_footer_bot = draw_diagram()
-
+    # ── Shared Data Platform footer ────────────────────────────
     footer_x = content_x
     footer_w = content_w
     footer_y = y_footer_bot
 
-    # Footer outer box
     footer_bg = FancyBboxPatch((footer_x, footer_y), footer_w, FOOTER_H,
                                boxstyle="round,pad=0.04",
                                facecolor=NAVY, edgecolor="none")
@@ -219,7 +211,11 @@ if __name__ == "__main__":
             ha="center", va="center", fontsize=7.5, fontweight="bold",
             color=WHITE, multialignment="center", linespacing=1.3)
 
-    plt.tight_layout(pad=0.15)
+    return fig, ax
+
+
+if __name__ == "__main__":
+    fig, ax = draw_diagram()
     out_png = os.path.join(OUT_DIR, "capability-model.png")
     out_svg = os.path.join(OUT_DIR, "capability-model.svg")
     plt.savefig(out_png, dpi=180, bbox_inches="tight", facecolor=BG_COLOR)
