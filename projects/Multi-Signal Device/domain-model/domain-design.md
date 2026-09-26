@@ -29,8 +29,8 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
                                                           │
                      ┌────────────────────────────────────┘
                      ▼
-            Epic Bridge Gateway  ──►  FHIR R4  ──►  Epic Aura Application
-                                                    (Clinician · Care Team)
+   IEMRGateway Port  ──►  EMR Adapter  ──►  EMR App (Clinician · Care Team
+                                                    embedded via SMART on FHIR)
                      │
                      ▼
             Platform Web App
@@ -52,7 +52,7 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
 | Platform Observability | Supporting | Device fleet health, pipeline SLA, error codes, data loss, connectivity metrics — serves Corporate Administrator |
 | Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, compliance export |
 | Device Connectivity | Generic | Commodity IoT — BLE/LTE uplink, edge pre-processing, packet validation |
-| Epic Bridge Gateway | Generic | ACL — translates platform domain objects (RiskAssessment, SignalObservation, Escalation) into FHIR R4 resources and pushes to Epic Aura. Also receives PatientReference via SMART on FHIR launch. No patient profile stored on platform. |
+| EMR Integration Gateway | Generic | Port & Adapter ACL — `IEMRGateway` port with vendor adapters (Epic, Cerner, GenericFHIR). Translates platform objects into FHIR R4 resources. Receives PatientReference via SMART on FHIR. No patient profile stored on platform. |
 
 ---
 
@@ -94,27 +94,48 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
 | **Alert** | A plain-language notification surfaced to the patient ("Your SpO₂ is slightly below your baseline today") |
 | **Trend** | A 7-day sparkline of one signal |
 
-### Epic Bridge Gateway
+### EMR Integration Gateway
 
 | Term | Definition |
 |---|---|
-| **PatientReference** | An opaque value object — the Epic patient ID received via SMART on FHIR launch context. The only patient identifier stored on this platform. Never contains name, DOB, or MRN. |
-| **SMART Launch Context** | The OAuth2 token bundle Epic passes when a clinician opens this platform from within Epic Aura. Contains `patient`, `encounter`, and `practitioner` claims. |
-| **FHIR Patient ID** | Epic's internal patient identifier, used as `PatientReference.id` throughout this platform |
-| **FHIR Write-back** | Optional posting of `Observation` (risk score) and `DocumentReference` (SOAP draft) resources back to Epic via FHIR R4 API |
-| **App Launch URL** | The SMART on FHIR endpoint registered in Epic App Orchard that Epic Aura calls to open this platform |
+| **IEMRGateway** | The port (abstract interface) through which the platform talks to any EMR. Never references a specific vendor. |
+| **EMR Adapter** | A vendor-specific implementation of `IEMRGateway` — one per EMR (EpicAdapter, CernerAdapter, GenericFHIRAdapter). Handles vendor quirks internally. |
+| **PatientReference** | An opaque value object — the FHIR Patient ID from whichever EMR is connected, received via SMART on FHIR launch context. The only patient identifier on this platform. Never contains name, DOB, or MRN. |
+| **SMART Launch Context** | The OAuth2 token bundle an EMR passes when a clinician opens this platform. Contains `patient`, `encounter`, and `practitioner` claims. Standard across all FHIR-compliant EMRs. |
+| **FHIR R4 Observation** | Standard resource used to write signal readings and risk scores back to the EMR |
+| **FHIR R4 DocumentReference** | Standard resource used to write SOAP draft notes back to the EMR |
+| **FHIR R4 Communication** | Standard resource used to write escalation alerts back to the EMR |
+| **LOINC Code** | Standard clinical terminology code mapped per signal type — used in FHIR Observation resources so any EMR can interpret the reading |
+
+**Port interface:**
+```python
+class IEMRGateway:
+    def get_patient_reference(self, launch_token: str) -> PatientReference: ...
+    def write_observation(self, ref: PatientReference, obs: SignalObservation) -> str: ...
+    def write_risk_score(self, ref: PatientReference, assessment: RiskAssessment) -> str: ...
+    def write_soap_draft(self, ref: PatientReference, assessment: RiskAssessment) -> str: ...
+    def write_escalation_alert(self, ref: PatientReference, esc: Escalation) -> str: ...
+```
+
+**Adapters:**
+| Adapter | EMR | Notes |
+|---|---|---|
+| `EpicAdapter` | Epic Aura | Epic App Orchard registration, Epic FHIR extensions, In-Basket alerts |
+| `CernerAdapter` | Oracle Cerner | Cerner App Gallery registration, Cerner FHIR extensions, Message Center |
+| `GenericFHIRAdapter` | Any FHIR R4 EMR | Standard FHIR R4 only — Athena, Meditech, Allscripts, others |
 
 **What this platform does NOT store:**
 - Patient name, date of birth, address, MRN
 - Insurance or billing information
 - Existing diagnoses or medication list
-- Any Epic-internal clinical data
+- Any EMR-internal clinical data
 
 **Integration flow:**
-1. Clinician opens this platform from Epic Aura (SMART on FHIR launch)
-2. Epic passes `PatientReference` (FHIR Patient ID) in the launch token
-3. Platform uses `PatientReference` to key all signal observations, risk assessments, and escalations
-4. Optionally writes risk scores and SOAP drafts back to Epic as FHIR resources
+1. Clinician opens this platform from their EMR (SMART on FHIR launch)
+2. EMR passes `PatientReference` (FHIR Patient ID) in the launch token
+3. Correct adapter is selected based on registered EMR vendor
+4. Platform keys all signal observations, risk assessments, and escalations to `PatientReference`
+5. Optionally writes risk scores, SOAP drafts, and escalation alerts back to the EMR via the adapter
 
 ---
 
@@ -152,18 +173,18 @@ graph TD
     subgraph Generic["🟢 GENERIC"]
         AC["Audit & Compliance\n(Generic)"]
         DC["Device Connectivity\n(Generic)"]
-        EPIC["Epic Aura Integration\n(Generic — ACL)"]
+        EMR["EMR Integration Gateway\n(Generic — ACL, Port & Adapter)"]
     end
 
     subgraph External["⬛ EXTERNAL"]
-        EPICAURA["Epic Aura\n(Upstream EMR)"]
+        EMRSYS["Epic Aura · Oracle Cerner\nAthena · Meditech · others"]
     end
 
-    EPICAURA -->|"SMART on FHIR\n(launch context + PatientReference)"| EPIC
-    EPIC -->|"ACL → PatientReference\n(Conformist)"| SP
-    EPIC -->|"ACL → PatientReference\n(Conformist)"| CDS
-    EPIC -->|"ACL → PatientReference\n(Conformist)"| PE
-    CDS -.->|"FHIR Write-back\n(Observation + SOAP draft)"| EPIC
+    EMRSYS -->|"SMART on FHIR\n(launch context + PatientReference)"| EMR
+    EMR -->|"ACL → PatientReference\n(Conformist)"| SP
+    EMR -->|"ACL → PatientReference\n(Conformist)"| CDS
+    EMR -->|"ACL → PatientReference\n(Conformist)"| PE
+    CDS -.->|"FHIR Write-back\n(Observation + SOAP draft)"| EMR
     DC -->|"Published Language\n(signal packets)"| SP
     SP -->|"Customer-Supplier\n(derived metrics)"| CDS
     SP -->|"Customer-Supplier\n(baseline + trend)"| PE
@@ -294,10 +315,10 @@ classDiagram
 | `RiskAssessmentCompleted` | CDS | assessmentId, patientId, score, tier | Care Coordination, Patient Engagement, Population Health |
 | `EscalationTriggered` | Care Coordination | escalationId, patientId, severity | Patient Engagement |
 | `EscalationResolved` | Care Coordination | escalationId, resolvedBy, resolvedAt | Population Health |
-| `PatientSessionEstablished` | Epic Aura Integration | patientReference (Epic FHIR ID), practitionerId, encounterId, launchedAt | Signal Processing, CDS, Patient Engagement |
-| `PatientSessionExpired` | Epic Aura Integration | patientReference, expiredAt | All contexts |
-| `RiskScoreWrittenToEpic` | Epic Aura Integration | patientReference, assessmentId, fhirObservationId | Audit & Compliance |
-| `SOAPDraftWrittenToEpic` | Epic Aura Integration | patientReference, assessmentId, fhirDocumentReferenceId | Audit & Compliance |
+| `PatientSessionEstablished` | EMR Integration Gateway | patientReference (FHIR Patient ID), practitionerId, encounterId, emrVendor, launchedAt | Signal Processing, CDS, Patient Engagement |
+| `PatientSessionExpired` | EMR Integration Gateway | patientReference, expiredAt | All contexts |
+| `RiskScoreWrittenToEMR` | EMR Integration Gateway | patientReference, assessmentId, fhirObservationId, emrVendor | Audit & Compliance |
+| `SOAPDraftWrittenToEMR` | EMR Integration Gateway | patientReference, assessmentId, fhirDocumentReferenceId, emrVendor | Audit & Compliance |
 | `DeviceOfflineDetected` | Device Connectivity | deviceId, patientId, lastSeenAt | Platform Observability |
 | `PacketLossThresholdBreached` | Signal Processing | deviceId, patientId, lossRate, windowMinutes | Platform Observability |
 | `DataLossEventDetected` | Signal Processing | patientId, signal, gapStart, gapEnd | Platform Observability, CDS |
@@ -331,11 +352,13 @@ classDiagram
 | **Platform Observability** | SLA dashboard | Grafana or Power BI |
 | **Audit & Compliance** | Immutable event log | Apache Kafka + S3 (WORM) / Azure Event Hubs |
 | **Audit & Compliance** | Lineage tracking | OpenLineage / Marquez |
-| **Epic Bridge Gateway** | SMART on FHIR launch handler | Epic App Orchard registration + SMART on FHIR OAuth2 |
-| **Epic Bridge Gateway** | FHIR R4 patient token validation | Epic FHIR R4 API (`/api/FHIR/R4/Patient`) |
-| **Epic Bridge Gateway** | Signal/risk data → Epic | Epic FHIR R4 API (`/api/FHIR/R4/Observation`, `/DocumentReference`, `/Communication`) |
-| **Epic Bridge Gateway** | PatientReference | In-memory session only — never persisted to DB |
-| **Epic Bridge Gateway** | Translation layer | Custom adapter service (Python/Node) mapping platform objects → FHIR R4 |
+| **EMR Integration Gateway** | Port interface | Python abstract base class `IEMRGateway` |
+| **EMR Integration Gateway** | SMART on FHIR auth (all vendors) | `smart-on-fhir` / `python-smart-client` library |
+| **EMR Integration Gateway** | EpicAdapter | Epic FHIR R4 API + Epic App Orchard registration |
+| **EMR Integration Gateway** | CernerAdapter | Oracle Cerner FHIR R4 API + Cerner App Gallery registration |
+| **EMR Integration Gateway** | GenericFHIRAdapter | Standard FHIR R4 (`/Patient`, `/Observation`, `/DocumentReference`, `/Communication`) |
+| **EMR Integration Gateway** | LOINC code registry | Static mapping file — signal type → LOINC code |
+| **EMR Integration Gateway** | PatientReference | In-memory session only — never persisted to DB |
 | **Patient Mobile App** | Mobile frontend | React Native (iOS + Android) |
 | **Platform Web App** | Web frontend | React + FastAPI backend |
 
