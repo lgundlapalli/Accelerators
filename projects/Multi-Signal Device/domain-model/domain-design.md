@@ -5,6 +5,40 @@
 
 ---
 
+## Access Endpoints by Persona
+
+| Persona | Channel | How |
+|---|---|---|
+| **Patient** | Mobile phone app | Platform App pushes simplified vitals, SpO₂/pH/temp trends, plain-language alerts |
+| **Clinician** | Epic Aura app | SMART on FHIR embedded — risk scores, SOAP drafts, threshold breach log appear inside Epic |
+| **Care Team** | Epic Aura app | SMART on FHIR embedded — escalation queue and care coordination inside Epic |
+| **Researcher** | Platform web app | Direct — cohort explorer, signal export, feature library |
+| **Hospital Administrator** | Platform web app | Direct — population health, readmission dashboards |
+| **Corporate Administrator** | Platform web app | Direct — system health, SLA, error codes, device fleet |
+
+## Data Flow
+
+```
+Medical Device (BLE / LTE)
+        │
+        ▼
+Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision Support
+                                │                          │
+                                ▼                          ▼
+                         Patient Mobile App         Care Coordination
+                                                          │
+                     ┌────────────────────────────────────┘
+                     ▼
+            Epic Bridge Gateway  ──►  FHIR R4  ──►  Epic Aura Application
+                                                    (Clinician · Care Team)
+                     │
+                     ▼
+            Platform Web App
+          (Hospital Admin · Corporate Admin · Researcher)
+```
+
+---
+
 ## Subdomain Classification
 
 | Bounded Context | Subdomain | Rationale |
@@ -18,7 +52,7 @@
 | Platform Observability | Supporting | Device fleet health, pipeline SLA, error codes, data loss, connectivity metrics — serves Corporate Administrator |
 | Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, compliance export |
 | Device Connectivity | Generic | Commodity IoT — BLE/LTE uplink, edge pre-processing, packet validation |
-| Epic Aura Integration | Generic | ACL — SMART on FHIR app launch, Epic patient token → PatientReference translation, FHIR write-back. No patient profile stored on platform. |
+| Epic Bridge Gateway | Generic | ACL — translates platform domain objects (RiskAssessment, SignalObservation, Escalation) into FHIR R4 resources and pushes to Epic Aura. Also receives PatientReference via SMART on FHIR launch. No patient profile stored on platform. |
 
 ---
 
@@ -60,7 +94,7 @@
 | **Alert** | A plain-language notification surfaced to the patient ("Your SpO₂ is slightly below your baseline today") |
 | **Trend** | A 7-day sparkline of one signal |
 
-### Epic Aura Integration
+### Epic Bridge Gateway
 
 | Term | Definition |
 |---|---|
@@ -297,10 +331,13 @@ classDiagram
 | **Platform Observability** | SLA dashboard | Grafana or Power BI |
 | **Audit & Compliance** | Immutable event log | Apache Kafka + S3 (WORM) / Azure Event Hubs |
 | **Audit & Compliance** | Lineage tracking | OpenLineage / Marquez |
-| **Epic Aura Integration** | SMART on FHIR app launch | Epic App Orchard registration + SMART on FHIR OAuth2 |
-| **Epic Aura Integration** | FHIR R4 patient token validation | Epic FHIR R4 API (`/api/FHIR/R4/Patient`) |
-| **Epic Aura Integration** | FHIR write-back | Epic FHIR R4 API (`/api/FHIR/R4/Observation`, `/DocumentReference`) |
-| **Epic Aura Integration** | PatientReference store | In-memory session only — never persisted to DB |
+| **Epic Bridge Gateway** | SMART on FHIR launch handler | Epic App Orchard registration + SMART on FHIR OAuth2 |
+| **Epic Bridge Gateway** | FHIR R4 patient token validation | Epic FHIR R4 API (`/api/FHIR/R4/Patient`) |
+| **Epic Bridge Gateway** | Signal/risk data → Epic | Epic FHIR R4 API (`/api/FHIR/R4/Observation`, `/DocumentReference`, `/Communication`) |
+| **Epic Bridge Gateway** | PatientReference | In-memory session only — never persisted to DB |
+| **Epic Bridge Gateway** | Translation layer | Custom adapter service (Python/Node) mapping platform objects → FHIR R4 |
+| **Patient Mobile App** | Mobile frontend | React Native (iOS + Android) |
+| **Platform Web App** | Web frontend | React + FastAPI backend |
 
 ---
 
