@@ -216,8 +216,8 @@ def draw_diagram():
 
 if __name__ == "__main__":
     fig, ax = draw_diagram()
-    out_png = os.path.join(OUT_DIR, "capability-model.png")
-    out_svg = os.path.join(OUT_DIR, "capability-model.svg")
+    out_png = os.path.join(OUT_DIR, "capability-model-v1.png")
+    out_svg = os.path.join(OUT_DIR, "capability-model-v1.svg")
     plt.savefig(out_png, dpi=180, bbox_inches="tight", facecolor=BG_COLOR)
     plt.savefig(out_svg, bbox_inches="tight", facecolor=BG_COLOR)
     plt.close()
