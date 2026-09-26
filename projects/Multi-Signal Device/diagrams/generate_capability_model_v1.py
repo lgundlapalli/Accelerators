@@ -17,7 +17,7 @@ PERSONA_COLORS = {
     "Care Team":              "#6A1B9A",
     "Researcher":             "#E65100",
     "Hospital\nAdministrator": "#AD1457",
-    "Regulatory":             "#546E7A",
+    "Corporate\nAdministrator": "#546E7A",
 }
 
 # ── Content (aligned to updated spec: pH, SpO2, H₂O₂, temperature) ──
@@ -68,12 +68,12 @@ PERSONAS = [
         },
     },
     {
-        "name": "Regulatory",
-        "color": PERSONA_COLORS["Regulatory"],
+        "name": "Corporate\nAdministrator",
+        "color": PERSONA_COLORS["Corporate\nAdministrator"],
         "rows": {
-            "insights":  "Audit log viewer\nData lineage trace\nConsent status\nAlgorithm version history",
-            "aiml":      "Bias & fairness\nmonitoring reports\nModel card export",
-            "analytics": "Signal provenance chain\nAlgorithm input/output\nsnapshots",
+            "insights":  "System health dashboard\nError code log\nConnectivity status board\nSLA breach notifications",
+            "aiml":      "Predictive device failure\nscoring\nPipeline anomaly detection\nData quality scoring",
+            "analytics": "Device uptime %\nPacket loss & latency\nSignal completeness score\nCost-per-patient compute",
         },
     },
 ]

@@ -81,7 +81,7 @@ GENERATIONS = [
             "Algorithm lineage & audit log",
             "Research cohort H₂O₂ explorer",
         ],
-        "personas": ["Patient", "Clinician", "Care Team", "Researcher", "Hospital Admin", "Regulatory"],
+        "personas": ["Patient", "Clinician", "Care Team", "Researcher", "Hospital Admin", "Corporate Admin"],
     },
 ]
 

@@ -15,7 +15,8 @@
 | Care Coordination | Supporting | Necessary for clinical workflow; escalation queues, panel management |
 | Research Analytics | Supporting | Cohort segmentation, feature library, raw signal access |
 | Population Health | Supporting | Risk stratification and readmission scoring for hospital administrators |
-| Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, regulatory export |
+| Platform Observability | Supporting | Device fleet health, pipeline SLA, error codes, data loss, connectivity metrics — serves Corporate Administrator |
+| Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, compliance export |
 | Device Connectivity | Generic | Commodity IoT — BLE/LTE uplink, edge pre-processing, packet validation |
 | Identity & Consent | Generic | Standard IAM + consent management |
 
@@ -59,6 +60,18 @@
 | **Alert** | A plain-language notification surfaced to the patient ("Your SpO₂ is slightly below your baseline today") |
 | **Trend** | A 7-day sparkline of one signal |
 
+### Corporate Administrator (Platform Observability)
+
+| Term | Definition |
+|---|---|
+| **Device Health** | Connectivity state of a single patient device — Online / Degraded / Offline |
+| **Packet Loss Rate** | % of expected signal packets not received in a time window |
+| **Signal Completeness Score** | % of expected observations actually ingested per patient per day |
+| **Pipeline Latency** | End-to-end time from device transmission to derived metric availability (P50/P95/P99) |
+| **Error Code** | Structured fault identifier — categories: device firmware, calibration failure, transmission error, processing failure |
+| **SLA Breach** | Any metric that crosses a defined operational threshold (e.g., uptime < 99.5%, latency P99 > 5s) |
+| **Data Loss Event** | A gap in signal time-series exceeding the configured tolerance window |
+
 ---
 
 ## Context Map
@@ -75,6 +88,7 @@ graph TD
         CC["Care Coordination\n(Supporting)"]
         RA["Research Analytics\n(Supporting)"]
         PH["Population Health\n(Supporting)"]
+        OBS["Platform Observability\n(Supporting)"]
     end
 
     subgraph Generic["🟢 GENERIC"]
@@ -96,6 +110,9 @@ graph TD
     IAM -->|"Conformist"| PE
     SP -.->|"ACL → event stream"| AC
     CDS -.->|"ACL → event stream"| AC
+    DC -->|"Published Language\n(device health events)"| OBS
+    SP -->|"Customer-Supplier\n(pipeline metrics)"| OBS
+    OBS -.->|"ACL → event stream"| AC
 ```
 
 ---
@@ -215,6 +232,11 @@ classDiagram
 | `EscalationResolved` | Care Coordination | escalationId, resolvedBy, resolvedAt | Population Health |
 | `ConsentGranted` | Identity & Consent | patientId, scope[], grantedAt | All contexts |
 | `ConsentRevoked` | Identity & Consent | patientId, scope[], revokedAt | All contexts |
+| `DeviceOfflineDetected` | Device Connectivity | deviceId, patientId, lastSeenAt | Platform Observability |
+| `PacketLossThresholdBreached` | Signal Processing | deviceId, patientId, lossRate, windowMinutes | Platform Observability |
+| `DataLossEventDetected` | Signal Processing | patientId, signal, gapStart, gapEnd | Platform Observability, CDS |
+| `PipelineLatencyBreached` | Signal Processing | stage, p99LatencyMs, thresholdMs | Platform Observability |
+| `SLABreachTriggered` | Platform Observability | metricName, currentValue, threshold, severity | Corporate Administrator |
 
 ---
 
@@ -238,6 +260,9 @@ classDiagram
 | **Research Analytics** | Cohort query engine | DuckDB or Databricks SQL |
 | **Research Analytics** | Feature store | Feast or Databricks Feature Store |
 | **Population Health** | Dashboards | Databricks + Power BI / Tableau |
+| **Platform Observability** | Device & pipeline metrics store | InfluxDB / Prometheus + Grafana |
+| **Platform Observability** | Error code log & alerting | PagerDuty / Azure Monitor |
+| **Platform Observability** | SLA dashboard | Grafana or Power BI |
 | **Audit & Compliance** | Immutable event log | Apache Kafka + S3 (WORM) / Azure Event Hubs |
 | **Audit & Compliance** | Lineage tracking | OpenLineage / Marquez |
 | **Identity & Consent** | Auth | Azure AD B2C or Auth0 |
