@@ -18,7 +18,7 @@
 | Platform Observability | Supporting | Device fleet health, pipeline SLA, error codes, data loss, connectivity metrics — serves Corporate Administrator |
 | Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, compliance export |
 | Device Connectivity | Generic | Commodity IoT — BLE/LTE uplink, edge pre-processing, packet validation |
-| Identity & Consent | Generic | Standard IAM + consent management |
+| Epic Aura Integration | Generic | ACL — SMART on FHIR app launch, Epic patient token → PatientReference translation, FHIR write-back. No patient profile stored on platform. |
 
 ---
 
@@ -60,6 +60,30 @@
 | **Alert** | A plain-language notification surfaced to the patient ("Your SpO₂ is slightly below your baseline today") |
 | **Trend** | A 7-day sparkline of one signal |
 
+### Epic Aura Integration
+
+| Term | Definition |
+|---|---|
+| **PatientReference** | An opaque value object — the Epic patient ID received via SMART on FHIR launch context. The only patient identifier stored on this platform. Never contains name, DOB, or MRN. |
+| **SMART Launch Context** | The OAuth2 token bundle Epic passes when a clinician opens this platform from within Epic Aura. Contains `patient`, `encounter`, and `practitioner` claims. |
+| **FHIR Patient ID** | Epic's internal patient identifier, used as `PatientReference.id` throughout this platform |
+| **FHIR Write-back** | Optional posting of `Observation` (risk score) and `DocumentReference` (SOAP draft) resources back to Epic via FHIR R4 API |
+| **App Launch URL** | The SMART on FHIR endpoint registered in Epic App Orchard that Epic Aura calls to open this platform |
+
+**What this platform does NOT store:**
+- Patient name, date of birth, address, MRN
+- Insurance or billing information
+- Existing diagnoses or medication list
+- Any Epic-internal clinical data
+
+**Integration flow:**
+1. Clinician opens this platform from Epic Aura (SMART on FHIR launch)
+2. Epic passes `PatientReference` (FHIR Patient ID) in the launch token
+3. Platform uses `PatientReference` to key all signal observations, risk assessments, and escalations
+4. Optionally writes risk scores and SOAP drafts back to Epic as FHIR resources
+
+---
+
 ### Corporate Administrator (Platform Observability)
 
 | Term | Definition |
@@ -94,9 +118,18 @@ graph TD
     subgraph Generic["🟢 GENERIC"]
         AC["Audit & Compliance\n(Generic)"]
         DC["Device Connectivity\n(Generic)"]
-        IAM["Identity & Consent\n(Generic)"]
+        EPIC["Epic Aura Integration\n(Generic — ACL)"]
     end
 
+    subgraph External["⬛ EXTERNAL"]
+        EPICAURA["Epic Aura\n(Upstream EMR)"]
+    end
+
+    EPICAURA -->|"SMART on FHIR\n(launch context + PatientReference)"| EPIC
+    EPIC -->|"ACL → PatientReference\n(Conformist)"| SP
+    EPIC -->|"ACL → PatientReference\n(Conformist)"| CDS
+    EPIC -->|"ACL → PatientReference\n(Conformist)"| PE
+    CDS -.->|"FHIR Write-back\n(Observation + SOAP draft)"| EPIC
     DC -->|"Published Language\n(signal packets)"| SP
     SP -->|"Customer-Supplier\n(derived metrics)"| CDS
     SP -->|"Customer-Supplier\n(baseline + trend)"| PE
@@ -105,9 +138,6 @@ graph TD
     CDS -->|"Customer-Supplier\n(risk scores + alerts)"| CC
     CDS -->|"Customer-Supplier\n(risk score + summary)"| PE
     CC -->|"Customer-Supplier\n(panel + tasks)"| PH
-    IAM -->|"Conformist"| SP
-    IAM -->|"Conformist"| CDS
-    IAM -->|"Conformist"| PE
     SP -.->|"ACL → event stream"| AC
     CDS -.->|"ACL → event stream"| AC
     DC -->|"Published Language\n(device health events)"| OBS
@@ -230,8 +260,10 @@ classDiagram
 | `RiskAssessmentCompleted` | CDS | assessmentId, patientId, score, tier | Care Coordination, Patient Engagement, Population Health |
 | `EscalationTriggered` | Care Coordination | escalationId, patientId, severity | Patient Engagement |
 | `EscalationResolved` | Care Coordination | escalationId, resolvedBy, resolvedAt | Population Health |
-| `ConsentGranted` | Identity & Consent | patientId, scope[], grantedAt | All contexts |
-| `ConsentRevoked` | Identity & Consent | patientId, scope[], revokedAt | All contexts |
+| `PatientSessionEstablished` | Epic Aura Integration | patientReference (Epic FHIR ID), practitionerId, encounterId, launchedAt | Signal Processing, CDS, Patient Engagement |
+| `PatientSessionExpired` | Epic Aura Integration | patientReference, expiredAt | All contexts |
+| `RiskScoreWrittenToEpic` | Epic Aura Integration | patientReference, assessmentId, fhirObservationId | Audit & Compliance |
+| `SOAPDraftWrittenToEpic` | Epic Aura Integration | patientReference, assessmentId, fhirDocumentReferenceId | Audit & Compliance |
 | `DeviceOfflineDetected` | Device Connectivity | deviceId, patientId, lastSeenAt | Platform Observability |
 | `PacketLossThresholdBreached` | Signal Processing | deviceId, patientId, lossRate, windowMinutes | Platform Observability |
 | `DataLossEventDetected` | Signal Processing | patientId, signal, gapStart, gapEnd | Platform Observability, CDS |
@@ -265,8 +297,10 @@ classDiagram
 | **Platform Observability** | SLA dashboard | Grafana or Power BI |
 | **Audit & Compliance** | Immutable event log | Apache Kafka + S3 (WORM) / Azure Event Hubs |
 | **Audit & Compliance** | Lineage tracking | OpenLineage / Marquez |
-| **Identity & Consent** | Auth | Azure AD B2C or Auth0 |
-| **Identity & Consent** | Consent store | PostgreSQL with audit trail |
+| **Epic Aura Integration** | SMART on FHIR app launch | Epic App Orchard registration + SMART on FHIR OAuth2 |
+| **Epic Aura Integration** | FHIR R4 patient token validation | Epic FHIR R4 API (`/api/FHIR/R4/Patient`) |
+| **Epic Aura Integration** | FHIR write-back | Epic FHIR R4 API (`/api/FHIR/R4/Observation`, `/DocumentReference`) |
+| **Epic Aura Integration** | PatientReference store | In-memory session only — never persisted to DB |
 
 ---
 
