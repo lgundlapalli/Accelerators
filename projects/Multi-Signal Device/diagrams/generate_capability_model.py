@@ -26,9 +26,9 @@ PERSONAS = [
         "name": "Patient",
         "color": PERSONA_COLORS["Patient"],
         "rows": {
-            "insights":  "Simplified vitals view\nSpO2 & pH trend\nSymptom logging prompt\nEscalation alert",
-            "aiml":      "Personalized baseline\ndeviation detection\nPlain-language LLM summary\n(SpO2, temp, pH)",
-            "analytics": "Relative change from\npersonal baseline\nRolling 7-day SpO2/pH trend",
+            "insights":  "Simplified vitals view\nSpO2, pH & temp trend\nSymptom logging prompt\nEscalation alert",
+            "aiml":      "Personalized baseline\ndeviation detection\nPlain-language LLM summary\n(SpO2, temp, pH, impedance)",
+            "analytics": "Relative change from\npersonal baseline\nRolling 7-day SpO2/pH/temp trend",
         },
     },
     {
@@ -37,7 +37,7 @@ PERSONAS = [
         "rows": {
             "insights":  "Clinical dashboard\nRisk score (0–100)\nSOAP-note draft\nThreshold breach log",
             "aiml":      "Predictive risk scoring\n(hypoxia, oxidative stress)\nLLM clinical summary\nAnomaly detection",
-            "analytics": "SpO2 saturation curves\npH deviation from norm\nH₂O₂ concentration trend\nImpedance & pressure indices",
+            "analytics": "Bio-impedance tissue index\nSpO2 saturation curves\npH & H₂O₂ concentration\nTemperature & pressure indices",
         },
     },
     {
