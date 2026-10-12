@@ -52,7 +52,8 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
 | Platform Observability | Supporting | Device fleet health, pipeline SLA, error codes, data loss, connectivity metrics — serves Corporate Administrator |
 | Audit & Compliance | Generic | Solved problem — immutable event log, consent, lineage, compliance export |
 | Device Connectivity | Generic | Commodity IoT — BLE/LTE uplink, edge pre-processing, packet validation |
-| EMR Integration Gateway | Generic | Port & Adapter ACL — `IEMRGateway` port with vendor adapters (Epic, Cerner, GenericFHIR). Translates platform objects into FHIR R4 resources. Receives PatientReference via SMART on FHIR. No patient profile stored on platform. |
+| Device Identity & Binding | Generic | Maps device serial numbers to opaque EMR patient tokens. Clinician-initiated binding at care start. Token is a one-way hash — meaningless without the EMR. Enables signal observations to be keyed to a patient without storing any identifiable data. |
+| EMR Integration Gateway | Generic | Port & Adapter ACL — `IEMRGateway` port with vendor adapters (Epic, Cerner, GenericFHIR). Translates platform objects into FHIR R4 resources. Receives PatientReference via SMART on FHIR or resolves it from a `DevicePatientToken` when no active session exists. No patient profile stored on platform. |
 
 ---
 
@@ -94,6 +95,16 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
 | **Alert** | A plain-language notification surfaced to the patient ("Your SpO₂ is slightly below your baseline today") |
 | **Trend** | A 7-day sparkline of one signal |
 
+### Device Identity & Binding
+
+| Term | Definition |
+|---|---|
+| **SerialNumber** | The hardware identity of a physical device — assigned at manufacturing, immutable |
+| **DevicePatientToken** | An opaque, one-way HMAC hash of `(TenantID + FHIR PatientID)` — stored in place of the raw EMR patient ID. Meaningless without the EMR and tenant key. |
+| **DevicePatientBinding** | The aggregate that links a `SerialNumber` to a `DevicePatientToken`. Created by a clinician at care initiation, expires at discharge or explicit revocation. |
+| **BindingClinician** | The practitioner who created the binding — recorded for audit, not for clinical use |
+| **BindingExpiry** | Optional timestamp after which the binding is automatically invalidated (e.g., patient discharged) |
+
 ### EMR Integration Gateway
 
 | Term | Definition |
@@ -111,6 +122,7 @@ Device Connectivity  ──►  Signal Processing  ──►  Clinical Decision 
 ```python
 class IEMRGateway:
     def get_patient_reference(self, launch_token: str) -> PatientReference: ...
+    def resolve_patient_from_token(self, token: DevicePatientToken, tenant_id: str) -> PatientReference: ...
     def write_observation(self, ref: PatientReference, obs: SignalObservation) -> str: ...
     def write_risk_score(self, ref: PatientReference, assessment: RiskAssessment) -> str: ...
     def write_soap_draft(self, ref: PatientReference, assessment: RiskAssessment) -> str: ...
@@ -130,12 +142,19 @@ class IEMRGateway:
 - Existing diagnoses or medication list
 - Any EMR-internal clinical data
 
-**Integration flow:**
+**Integration flow — SMART on FHIR session (clinician-initiated):**
 1. Clinician opens this platform from their EMR (SMART on FHIR launch)
 2. EMR passes `PatientReference` (FHIR Patient ID) in the launch token
 3. Correct adapter is selected based on registered EMR vendor
-4. Platform keys all signal observations, risk assessments, and escalations to `PatientReference`
-5. Optionally writes risk scores, SOAP drafts, and escalation alerts back to the EMR via the adapter
+4. Clinician binds the device serial number to the patient → `DevicePatientBinding` created, `DevicePatientToken` stored
+5. Platform keys all signal observations, risk assessments, and escalations to `PatientReference`
+6. Optionally writes risk scores, SOAP drafts, and escalation alerts back to the EMR via the adapter
+
+**Integration flow — device-initiated (no active EMR session):**
+1. Device transmits signal packet with `SerialNumber`
+2. Device Connectivity looks up `DevicePatientBinding` by serial number → retrieves `DevicePatientToken`
+3. `IEMRGateway.resolve_patient_from_token(token, tenant_id)` → adapter decodes token → fetches FHIR `Patient/{id}` from EMR
+4. `PatientReference` is used for the duration of the processing pipeline — never persisted
 
 ---
 
@@ -173,6 +192,7 @@ graph TD
     subgraph Generic["🟢 GENERIC"]
         AC["Audit & Compliance\n(Generic)"]
         DC["Device Connectivity\n(Generic)"]
+        DIB["Device Identity & Binding\n(Generic — serial# → token mapping)"]
         EMR["EMR Integration Gateway\n(Generic — ACL, Port & Adapter)"]
     end
 
@@ -181,6 +201,8 @@ graph TD
     end
 
     EMRSYS -->|"SMART on FHIR\n(launch context + PatientReference)"| EMR
+    DC -->|"SerialNumber\n(from signal packet)"| DIB
+    DIB -->|"DevicePatientToken\n(opaque, hashed)"| EMR
     EMR -->|"ACL → PatientReference\n(Conformist)"| SP
     EMR -->|"ACL → PatientReference\n(Conformist)"| CDS
     EMR -->|"ACL → PatientReference\n(Conformist)"| PE
@@ -193,6 +215,7 @@ graph TD
     CDS -->|"Customer-Supplier\n(risk scores + alerts)"| CC
     CDS -->|"Customer-Supplier\n(risk score + summary)"| PE
     CC -->|"Customer-Supplier\n(panel + tasks)"| PH
+    DIB -.->|"ACL → event stream"| AC
     SP -.->|"ACL → event stream"| AC
     CDS -.->|"ACL → event stream"| AC
     DC -->|"Published Language\n(device health events)"| OBS
@@ -287,6 +310,25 @@ classDiagram
 - At least one `RiskFactor` must exist if `score.tier` is Moderate or higher
 - `summary.citedSignals` must reference only signals present in the triggering `SignalObservation`
 
+### Device Identity & Binding — `DevicePatientBinding` (Aggregate Root)
+
+| Field | Type | Notes |
+|---|---|---|
+| `id` | BindingId | |
+| `serialNumber` | SerialNumber | Hardware identity of the device |
+| `devicePatientToken` | DevicePatientToken | HMAC hash of `(tenantId + FHIR PatientID)` — opaque, one-way |
+| `tenantId` | TenantId | Hospital / health system identifier — needed to decode token at adapter |
+| `emrVendor` | EpicAdapter \| CernerAdapter \| GenericFHIRAdapter | Determines which adapter resolves the token |
+| `boundBy` | PractitionerId | Clinician who created the binding |
+| `boundAt` | Timestamp | |
+| `expiresAt` | Timestamp? | Optional — set at discharge or session close |
+| `status` | Active \| Expired \| Revoked | |
+
+**Invariants:**
+- A `SerialNumber` may only have one `Active` binding at a time
+- `devicePatientToken` is write-once — never updated, only revoked and rebound
+- Rebinding requires explicit revocation of the prior binding (audit trail)
+
 ### Care Coordination — `Escalation` (Aggregate Root)
 
 | Field | Type | Notes |
@@ -319,6 +361,9 @@ classDiagram
 | `PatientSessionExpired` | EMR Integration Gateway | patientReference, expiredAt | All contexts |
 | `RiskScoreWrittenToEMR` | EMR Integration Gateway | patientReference, assessmentId, fhirObservationId, emrVendor | Audit & Compliance |
 | `SOAPDraftWrittenToEMR` | EMR Integration Gateway | patientReference, assessmentId, fhirDocumentReferenceId, emrVendor | Audit & Compliance |
+| `DevicePatientBindingCreated` | Device Identity & Binding | bindingId, serialNumber, devicePatientToken, tenantId, emrVendor, boundBy, boundAt, expiresAt | EMR Integration Gateway, Audit & Compliance |
+| `DevicePatientBindingRevoked` | Device Identity & Binding | bindingId, serialNumber, revokedBy, revokedAt, reason | EMR Integration Gateway, Audit & Compliance |
+| `DevicePatientBindingExpired` | Device Identity & Binding | bindingId, serialNumber, expiredAt | EMR Integration Gateway, Platform Observability |
 | `DeviceOfflineDetected` | Device Connectivity | deviceId, patientId, lastSeenAt | Platform Observability |
 | `PacketLossThresholdBreached` | Signal Processing | deviceId, patientId, lossRate, windowMinutes | Platform Observability |
 | `DataLossEventDetected` | Signal Processing | patientId, signal, gapStart, gapEnd | Platform Observability, CDS |
@@ -352,6 +397,9 @@ classDiagram
 | **Platform Observability** | SLA dashboard | Grafana or Power BI |
 | **Audit & Compliance** | Immutable event log | Apache Kafka + S3 (WORM) / Azure Event Hubs |
 | **Audit & Compliance** | Lineage tracking | OpenLineage / Marquez |
+| **Device Identity & Binding** | Binding store | PostgreSQL — `device_patient_bindings` table (serial_number, token, tenant_id, emr_vendor, status, expiry) |
+| **Device Identity & Binding** | Token generation | HMAC-SHA256 keyed with per-tenant secret from AWS Secrets Manager / Azure Key Vault |
+| **Device Identity & Binding** | Active binding lookup | Redis cache (serial_number → token) — TTL matched to binding expiry |
 | **EMR Integration Gateway** | Port interface | Python abstract base class `IEMRGateway` |
 | **EMR Integration Gateway** | SMART on FHIR auth (all vendors) | `smart-on-fhir` / `python-smart-client` library |
 | **EMR Integration Gateway** | EpicAdapter | Epic FHIR R4 API + Epic App Orchard registration |
@@ -381,6 +429,13 @@ class RiskAssessmentRepository:
     def save(self, assessment: RiskAssessment) -> None: ...
     def latest_for_patient(self, patient_id: PatientId) -> RiskAssessment | None: ...
     def find_by_tier(self, tier: RiskTier, since: datetime) -> list[RiskAssessment]: ...
+
+# Device Identity & Binding
+class DevicePatientBindingRepository:
+    def save(self, binding: DevicePatientBinding) -> None: ...
+    def find_active_by_serial(self, serial: SerialNumber) -> DevicePatientBinding | None: ...
+    def revoke(self, binding_id: BindingId, revoked_by: PractitionerId, reason: str) -> None: ...
+    def find_by_serial_history(self, serial: SerialNumber) -> list[DevicePatientBinding]: ...
 
 # Care Coordination
 class EscalationRepository:

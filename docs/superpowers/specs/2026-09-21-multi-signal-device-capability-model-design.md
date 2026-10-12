@@ -3,14 +3,14 @@
 
 ## Overview
 
-A persona-first capability model and reference architecture for a hypothetical multi-signal wearable device that generates bio-impedance, pressure, and fluid movement data. The primary deliverable is a diagram that serves both executive stakeholders (capability story) and engineering teams (reference architecture blueprint).
+A persona-first capability model and reference architecture for a hypothetical multi-signal wearable device that generates bio-impedance, pressure, pH, SpO2, hydrogen peroxide detection, and temperature data. The primary deliverable is a diagram that serves both executive stakeholders (capability story) and engineering teams (reference architecture blueprint).
 
 ---
 
 ## Device Context
 
 - **Type:** Wearable (reference/hypothetical)
-- **Signals:** Bio-impedance, pressure, fluid movement
+- **Signals:** Bio-impedance, pressure, pH, SpO2, hydrogen peroxide detection, temperature
 - **Scope:** Multi-signal, multi-condition — not tied to a single disease area
 - **Purpose:** Demonstrate how a unified sensing platform surfaces differentiated insights to six distinct personas
 
@@ -45,14 +45,14 @@ Four horizontal rows (top to bottom) within each swimlane, plus one shared foote
 ## Persona Capability Detail
 
 ### Patient
-- **Insights & Actions:** Simplified vitals view, daily fluid balance trend, symptom logging prompt, escalation alert ("contact your care team")
-- **AI / ML:** Personalized baseline deviation detection, plain-language LLM summary ("Your fluid levels are slightly elevated today")
-- **Analytics:** Relative change from personal baseline, rolling 7-day trend
+- **Insights & Actions:** Simplified vitals view, SpO2 & pH trend, symptom logging prompt, escalation alert ("contact your care team")
+- **AI / ML:** Personalized baseline deviation detection, plain-language LLM summary ("Your oxygen levels are slightly below your baseline today")
+- **Analytics:** Relative change from personal baseline, rolling 7-day SpO2/pH trend
 
 ### Clinician
 - **Insights & Actions:** Clinical dashboard, risk score (0–100), SOAP-note draft, threshold breach log, medication titration prompt
-- **AI / ML:** Predictive risk scoring (decompensation, fluid overload), LLM-generated clinical summary with cited signal evidence, anomaly detection
-- **Analytics:** Absolute impedance values, pressure waveform indices, fluid volume estimates vs. population norms
+- **AI / ML:** Predictive risk scoring (hypoxia, oxidative stress), LLM-generated clinical summary with cited signal evidence, anomaly detection
+- **Analytics:** Absolute impedance values, pressure waveform indices, SpO2 saturation curves, pH deviation from normal range, H₂O₂ concentration trend vs. population norms
 
 ### Care Team
 - **Insights & Actions:** Escalation queue (ranked by risk), care coordination timeline, task assignment, cross-patient panel view
@@ -83,7 +83,7 @@ Four horizontal rows (top to bottom) within each swimlane, plus one shared foote
 | Signal Ingestion | BLE/LTE device uplink, edge pre-processing, packet validation |
 | Normalization | Unit conversion, noise filtering, signal alignment across modalities |
 | Time-Series Store | Raw + derived signal storage, partitioned by patient and modality |
-| Feature Engineering | Derived metrics computation — impedance → fluid volume, pressure → hemodynamic indices |
+| Feature Engineering | Derived metrics computation — impedance → tissue composition indices, pressure → hemodynamic indices, pH + H₂O₂ → oxidative stress score, SpO2 → hypoxia risk flag |
 | Model Serving | Real-time inference endpoint for risk scoring and anomaly detection |
 | Audit & Lineage | Immutable event log, data provenance, consent management |
 
